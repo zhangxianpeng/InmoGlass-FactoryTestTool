@@ -1,12 +1,14 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.qty.factorytools"
+        applicationId "com.inmoglass.factorytools"
         minSdkVersion 23
-        targetSdkVersion 24
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,20 +22,19 @@ android {
 }
 
 dependencies {
-    provided files(getLayoutLibPath())
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    provided files(getLayoutLibPath())
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+
+    implementation files('libs\\layoutlib.jar')
 }
 
 tasks.withType(JavaCompile) {
-    options.encoding="UTF-8"
+    options.encoding = "UTF-8"
 }
 
-def getLayoutLibPath() {
-    return "${android.getSdkDirectory().getAbsolutePath()}" +
-            "/platforms/" + android.compileSdkVersion + "/data/layoutlib.jar"
-}

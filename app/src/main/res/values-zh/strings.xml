@@ -1,0 +1,92 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">测试工具</string>
+
+    <string name="auto_test_title">自动测试</string>
+    <string name="system_test_title">系统测试</string>
+    <string name="battery_test_title">电池测试</string>
+    <string name="screen_test_title">屏幕测试</string>
+    <string name="ring_test_title">喇叭测试</string>
+    <string name="telephony_test_title">电话测试</string>
+    <string name="annex_test_title">附件测试</string>
+    <string name="wireless_test_title">WIFI测试</string>
+    <string name="sensor_test_title">传感器测试</string>
+    <string name="camera_test_title">Camera测试</string>
+    <string name="key_test_title">按键测试</string>
+    <string name="usb_test_title">USB接口测试</string>
+    <string name="micro_test_title">麦克风测试</string>
+    <string name="test_report_title">测试报告</string>
+    <string name="not_found_test">Test items not found</string>
+    <string name="not_found_test_index">Test items index not found</string>
+
+    <string name="version_test_title">System Version Test</string>
+    <string name="rf_cali_test_title">RF CALI Test</string>
+    <string name="rtc_test_title">RTC Test</string>
+    <string name="lcd_test_title">LCD Test</string>
+    <string name="backlit_test_title">Backlit Test</string>
+    <string name="single_finger_touch_test_title">Single Finger Touch Test</string>
+    <string name="multi_finger_touch_test_title">Multi Finger Touch Test</string>
+    <string name="vibration_test_title">Vibration Test</string>
+    <string name="loop_back_test_title">Loop Back Test</string>
+    <string name="sim_card_test_title">Sim Card Test</string>
+    <string name="earpiece_test_title">Earpiece Test</string>
+    <string name="call_test_title">Call Test</string>
+    <string name="sdcard_test_title">SD Card Test</string>
+    <string name="charging_test_title">Charging Test</string>
+    <string name="headset_test_title">Headset Test</string>
+    <string name="fmradio_test_title">FM Radio Test</string>
+    <string name="wifi_test_title">WIFI Test</string>
+    <string name="bluetooth_test_title">Bluetooth Test</string>
+    <string name="gps_test_title">GPS Test</string>
+    <string name="compass_test_title">指南针测试</string>
+    <string name="gravity_sensor_test_title">重力传感器测试</string>
+    <string name="gps_sensor_test_title">GPS测试</string>
+    <string name="gyro_sensor_test_title">陀螺仪测试</string>
+    <string name="geomagnetism_sensor_test_title">地磁测试</string>
+    <string name="system_version_test_title">System Version Test</string>
+
+    <string name="android_version_title">Android Version: </string>
+    <string name="kernel_version_title">Kernel Version: </string>
+    <string name="system_version_title">System Version: </string>
+    <string name="device_serial_number_title">Device Serial Number: </string>
+    <string name="unknown">Unknown</string>
+    <string name="pass">Pass</string>
+    <string name="fail">Fail</string>
+
+    <string name="disabled_key_tip">Please press "pass" or "fail" to exit test</string>
+
+    <string name="rf_cali_test_sn_title">SN: </string>
+    <string name="rf_cali_test_calibration_title">Calibration: </string>
+    <string name="rf_cali_test_comprehensive_test_title">Comprehensive Test:</string>
+    <string name="system_test_system_time">System Time: </string>
+
+    <string name="lcd_test_view_start_tip">Touch Continue</string>
+    <string name="lcd_test_view_end_tip">LCD test is complete</string>
+
+    <string name="ring_tip_title">"Now Playing: \n"<xliff:g id="file_path">%s</xliff:g></string>
+    <string name="vibration_test_tip">Touch screen vibration</string>
+
+    <!--电池测试-->
+    <string name="battery_voltage_test_title">电压测试</string>
+    <string name="battery_standby_current_test_title">待机电流测试</string>
+    <string name="battery_charging_status_test_title">充电状态测试</string>
+    <string name="battery_voltage">电池电压</string>
+    <string name="battery_current_value">当前电量</string>
+    <string name="batter_voltage_judge">评判标准:3.8V-4.2V为正常范围</string>
+
+    <string name="battery_standby_current">待机电流</string>
+    <string name="battery_charging_status">充电状态</string>
+    <string name="battery_charging_current">充电电流</string>
+
+    <string name="gravity_sensor_test">重力传感器测试</string>
+    <string name="sensor_show_msg">倾斜手机，是否可以看到箭头？</string>
+
+    <string name="wifi_test_isconnected">是否连接到wifi</string>
+    <string name="wifi_test_name">wifi名称</string>
+    <string name="wifi_test_strength">信号强度</string>
+
+    <string name="micro_test">麦克风测试</string>
+    <string name="micro_test_item">麦克风录音播放测试</string>
+
+    <string name="otg_test">OTG测试</string>
+</resources>
