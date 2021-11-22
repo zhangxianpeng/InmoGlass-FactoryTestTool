@@ -15,7 +15,7 @@ public class SensorTestList extends AbstractListActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setTitle(R.string.sensor_test_title);
+        setTitle(R.string.sensor_test);
         mApplication.updateSensorTestList();
         setTestList(mApplication.getSensorTestList());
     }

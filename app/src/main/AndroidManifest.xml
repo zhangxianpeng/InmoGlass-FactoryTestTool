@@ -58,7 +58,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.DUMP"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
     <application
         android:name=".FactoryToolsApplication"
         android:allowBackup="true"
@@ -103,29 +104,7 @@
             </intent-filter>
         </activity>
         <!-- 待机电流测试 -->
-        <activity
-            android:name=".batterytest.StandByCurrentActivity"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <!-- 充电状态测试 -->
-        <activity
-            android:name=".batterytest.ChargingStatusActivity"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <!-- 摄像头 -->
         <activity
@@ -247,17 +226,42 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!--触摸板测试-->
         <activity
-            android:name=".screentest.ScreenTestList"
+            android:name=".tptest.TpTestList"
             android:exported="false"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".tptest.SingleFingerTouchTestActivity"
+            android:configChanges="orientation|screenSize|screenLayout|locale"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".tptest.MultiFingerTouchTestActivity"
+            android:configChanges="orientation|screenSize|screenLayout|locale"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--系统测试-->
         <activity
             android:name=".systemtest.SystemTestList"
             android:exported="false"
@@ -293,28 +297,6 @@
         </activity>
         <activity
             android:name=".systemtest.SystemVersionTestActivity"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".systemtest.RfCaliTestActivity"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".systemtest.RtcTestActivity"
             android:exported="false"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait">
@@ -390,6 +372,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!--光机显示-->
+        <activity
+            android:name=".screentest.ScreenTestList"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".screentest.BacklitTestActivity"
             android:exported="false"
@@ -397,7 +391,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -408,31 +401,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".screentest.MultiFingerTouchTestActivity"
-            android:configChanges="orientation|screenSize|screenLayout|locale"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".screentest.SingleFingerTouchTestActivity"
-            android:configChanges="orientation|screenSize|screenLayout|locale"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -471,16 +439,6 @@
             </intent-filter>
         </activity>
         <!--GPS-->
-        <activity
-            android:name=".sensortest.GpsSensorTestActivity"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <!--陀螺仪-->
         <activity
             android:name=".sensortest.GyroSensorTestActivity"
@@ -493,16 +451,6 @@
             </intent-filter>
         </activity>
         <!--地磁-->
-        <activity
-            android:name=".sensortest.GeomagnetismSensorTestActivity"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name=".telephonytest.CallTestActivity"

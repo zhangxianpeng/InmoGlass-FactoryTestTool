@@ -15,18 +15,16 @@
 
     <!--测试列表标题-->
     <string-array name="test_item_title">
-        <item>@string/system_test_title</item>
-        <item>@string/battery_test_title</item>
-        <item>@string/screen_test_title</item>
-        <item>@string/ring_test_title</item>
-        <item>@string/sensor_test_title</item>
-        <item>@string/wireless_test_title</item>
+        <item>@string/system_test</item>
+        <item>@string/battery_test</item>
+        <item>@string/sensor_test</item>
+        <item>@string/wireless_test</item>
+        <item>@string/screen_test</item>
+        <item>@string/tp_test</item>
         <item>@string/camera_test_title</item>
         <item>@string/micro_test_title</item>
         <item>@string/key_test_title</item>
         <item>@string/usb_test_title</item>
-        <item>@string/telephony_test_title</item>
-        <item>@string/annex_test_title</item>
         <item>@string/test_report_title</item>
     </string-array>
 
@@ -34,61 +32,85 @@
     <string-array name="test_item_class">
         <item>com.inmoglass.factorytools.systemtest.SystemTestList</item>
         <item>com.inmoglass.factorytools.batterytest.BatteryTestList</item>
-        <item>com.inmoglass.factorytools.screentest.ScreenTestList</item>
-        <item>com.inmoglass.factorytools.ringtest.RingTestList</item>
         <item>com.inmoglass.factorytools.sensortest.SensorTestList</item>
         <item>com.inmoglass.factorytools.wirelesstest.WirelessTestList</item>
+        <item>com.inmoglass.factorytools.screentest.ScreenTestList</item>
+        <item>com.inmoglass.factorytools.tptest.TpTestList</item>
         <item>com.inmoglass.factorytools.cameratest.CameraTestList</item>
         <item>com.inmoglass.factorytools.microtest.MicroTestList</item>
         <item>com.inmoglass.factorytools.keytest.KeyTestList</item>
         <item>com.inmoglass.factorytools.usbtest.USBTestList</item>
-        <item>com.inmoglass.factorytools.telephonytest.TelephonyTestList</item>
-        <item>com.inmoglass.factorytools.annextest.AnnexTestList</item>
         <item>com.inmoglass.factorytools.TestReportActivity</item>
     </string-array>
 
     <!--系统测试列表标题-->
     <string-array name="system_test_title">
-        <item>@string/version_test_title</item>
-        <item>@string/rf_cali_test_title</item>
-        <item>@string/rtc_test_title</item>
+        <item>@string/system_test_info</item>
     </string-array>
 
     <!--系统测试列表类名-->
     <string-array name="system_test_class">
         <item>com.inmoglass.factorytools.systemtest.SystemVersionTestActivity</item>
-        <item>com.inmoglass.factorytools.systemtest.RfCaliTestActivity</item>
-        <item>com.inmoglass.factorytools.systemtest.RtcTestActivity</item>
     </string-array>
 
     <!-- 电池测试 = 电压 + 待机电流 + 充电状态-->
     <string-array name="battery_test_title">
-        <item>@string/battery_voltage_test_title</item>
-        <item>@string/battery_standby_current_test_title</item>
-        <item>@string/battery_charging_status_test_title</item>
+        <item>@string/battery_test</item>
     </string-array>
 
     <!-- 电池测试类名 -->
     <string-array name="battery_test_class">
         <item>com.inmoglass.factorytools.batterytest.VoltageActivity</item>
-        <item>com.inmoglass.factorytools.batterytest.StandByCurrentActivity</item>
-        <item>com.inmoglass.factorytools.batterytest.ChargingStatusActivity</item>
+    </string-array>
+
+    <!--传感器测试列表标题-->
+    <string-array name="sensor_test_title">
+        <item>@string/sensor_test_compass</item>
+        <item>@string/sensor_test_acceleration_of_gravity</item>
+        <item>@string/sensor_test_gyro</item>
+    </string-array>
+
+    <!--传感器测试列表类名-->
+    <string-array name="sensor_test_class">
+        <item>com.inmoglass.factorytools.sensortest.CompassSensorTestActivity</item>
+        <item>com.inmoglass.factorytools.sensortest.GravitySensorTestActivity</item>
+        <item>com.inmoglass.factorytools.sensortest.GyroSensorTestActivity</item>
+    </string-array>
+
+    <!--无线测试列表标题-->
+    <string-array name="wireless_test_title">
+        <item>@string/wifi_test_title</item>
+        <item>@string/bluetooth_test_title</item>
+    </string-array>
+
+    <!--无线测试列表类名-->
+    <string-array name="wireless_test_class">
+        <item>com.inmoglass.factorytools.wirelesstest.WifiTestActivity</item>
+        <item>com.inmoglass.factorytools.wirelesstest.BluetoothTestActivity</item>
     </string-array>
 
     <!--屏幕测试列表标题-->
     <string-array name="screen_test_title">
-        <item>@string/lcd_test_title</item>
-        <item>@string/backlit_test_title</item>
-        <item>@string/single_finger_touch_test_title</item>
-        <item>@string/multi_finger_touch_test_title</item>
+        <item>@string/screen_test_lcd</item>
+        <item>@string/screen_test_lcd_back_light</item>
     </string-array>
 
     <!--屏幕测试列表类名-->
     <string-array name="screen_test_class">
         <item>com.inmoglass.factorytools.screentest.LcdTestActivity</item>
         <item>com.inmoglass.factorytools.screentest.BacklitTestActivity</item>
-        <item>com.inmoglass.factorytools.screentest.SingleFingerTouchTestActivity</item>
-        <item>com.inmoglass.factorytools.screentest.MultiFingerTouchTestActivity</item>
+    </string-array>
+
+    <!--触摸板测试列表标题-->
+    <string-array name="tp_test_title">
+        <item>@string/tp_test_single_touch</item>
+        <item>@string/tp_test_multi_touch</item>
+    </string-array>
+
+    <!--触摸板测试列表类名-->
+    <string-array name="tp_test_class">
+        <item>com.inmoglass.factorytools.tptest.SingleFingerTouchTestActivity</item>
+        <item>com.inmoglass.factorytools.tptest.MultiFingerTouchTestActivity</item>
     </string-array>
 
     <!--铃声测试列表标题-->
@@ -133,36 +155,6 @@
         <item>com.inmoglass.factorytools.annextest.HeadsetTest</item>
     </string-array>
 
-    <!--无线测试列表标题-->
-    <string-array name="wireless_test_title">
-        <item>@string/wifi_test_title</item>
-        <item>@string/bluetooth_test_title</item>
-    </string-array>
-
-    <!--无线测试列表类名-->
-    <string-array name="wireless_test_class">
-        <item>com.inmoglass.factorytools.wirelesstest.WifiTestActivity</item>
-        <item>com.inmoglass.factorytools.wirelesstest.BluetoothTestActivity</item>
-    </string-array>
-
-    <!--传感器测试列表标题-->
-    <string-array name="sensor_test_title">
-        <item>@string/compass_test_title</item>
-        <item>@string/gravity_sensor_test_title</item>
-        <item>@string/gps_sensor_test_title</item>
-        <item>@string/gyro_sensor_test_title</item>
-        <item>@string/geomagnetism_sensor_test_title</item>
-    </string-array>
-
-    <!--传感器测试列表类名-->
-    <string-array name="sensor_test_class">
-        <item>com.inmoglass.factorytools.sensortest.CompassSensorTestActivity</item>
-        <item>com.inmoglass.factorytools.sensortest.GravitySensorTestActivity</item>
-        <item>com.inmoglass.factorytools.sensortest.GpsSensorTestActivity</item>
-        <item>com.inmoglass.factorytools.sensortest.GyroSensorTestActivity</item>
-        <item>com.inmoglass.factorytools.sensortest.GeomagnetismSensorTestActivity</item>
-    </string-array>
-
     <!--相机测试列表标题-->
     <string-array name="camera_test_title">
         <item>@string/camera_test_title</item>
@@ -180,7 +172,7 @@
 
     <!--按键测试列表类名-->
     <string-array name="key_test_class">
-        <item>com.inmoglass.factorytools.keytest.KeyTest</item>
+        <item>com.inmoglass.factorytools.keytest.KeyTestActivity</item>
     </string-array>
 
     <!--USB测试列表标题-->
@@ -209,16 +201,14 @@
     <string-array name="test_item_state_list">
         <item>system_test_class</item>
         <item>battery_test_class</item>
-        <item>screen_test_class</item>
-        <item>ring_test_class</item>
         <item>sensor_test_class</item>
         <item>wireless_test_class</item>
+        <item>screen_test_class</item>
+        <item>tp_test_class</item>
         <item>camera_test_class</item>
         <item>micro_test_class</item>
         <item>key_test_class</item>
         <item>usb_test_class</item>
-        <item>telephony_test_class</item>
-        <item>annex_test_class</item>
     </string-array>
 
     <!--  自动测试时，进行下一测试项测试的延迟时间，单位：毫秒   -->
@@ -234,7 +224,7 @@
     </integer-array>
 
     <!--LCD　测试时切换屏幕颜色的延迟时间，单位：毫秒-->
-    <integer name="lcd_test_next_color_delayed">5000</integer>
+    <integer name="lcd_test_next_color_delayed">3000</integer>
     <!--LCD 测试时隐藏操作提示信息的延迟时间，　单位：毫秒-->
     <integer name="lcd_test_hide_start_tip_delayed">3000</integer>
     <!--LCD 测试时显示结束测试提示信息的延迟时间，单位：毫秒-->

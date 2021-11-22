@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.TimeUtils;
 import com.inmoglass.factorytools.AbstractTestActivity;
 import com.inmoglass.factorytools.Log;
 import com.inmoglass.factorytools.R;
@@ -16,19 +17,17 @@ import java.io.InputStreamReader;
 
 public class SystemVersionTestActivity extends AbstractTestActivity {
 
-    private static final int REQUEST_PERMISSION_CODE = 119;
-
     private TextView mAndroidVersionTv;
     private TextView mKernalVersionTv;
     private TextView mSystemVersionTv;
     private TextView mDeviceSerialNumberTv;
+    private TextView mSystemTimeTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.system_version_test_title);
+        setTitle(R.string.system_test);
         setContentView(R.layout.layout_system_version_test);
-
         initViews();
     }
 
@@ -51,6 +50,8 @@ public class SystemVersionTestActivity extends AbstractTestActivity {
                 mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
             }
         }
+
+        mSystemTimeTv.setText(TimeUtils.getNowString());
     }
 
     private void initViews() {
@@ -58,6 +59,7 @@ public class SystemVersionTestActivity extends AbstractTestActivity {
         mKernalVersionTv = (TextView) findViewById(R.id.kernal_version);
         mSystemVersionTv = (TextView) findViewById(R.id.system_version);
         mDeviceSerialNumberTv = (TextView) findViewById(R.id.device_serial_number);
+        mSystemTimeTv = findViewById(R.id.tv_system_time);
     }
 
     private String getKernalVersion() {

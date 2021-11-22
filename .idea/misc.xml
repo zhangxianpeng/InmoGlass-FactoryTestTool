@@ -4,11 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_charging_status.xml" value="0.26666666666666666" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_compass_sensor_test.xml" value="0.5640625" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_gps_sensor_test.xml" value="0.2234375" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_gravity_sensor_test.xml" value="0.5" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_gyroscope_sensor.xml" value="0.2552083333333333" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_micro_test.xml" value="0.20729166666666668" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_otg_test.xml" value="0.3515625" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_rf_cali_test.xml" value="0.3515625" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_sensor_gyro.xml" value="0.67" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_stand_by_current.xml" value="0.21041666666666667" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_usb_test.xml" value="0.21979166666666666" />
-        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_voltage.xml" value="0.25" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_voltage.xml" value="0.6156716417910447" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/activity_wifi_test.xml" value="0.5" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/ambient_light_test.xml" value="0.3359375" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/backlit_test.xml" value="0.3359375" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/bluetooth_test.xml" value="0.3359375" />
@@ -22,14 +29,18 @@
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/gravity_sensor_test.xml" value="0.3515625" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/headset_test.xml" value="0.3359375" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/item_listview.xml" value="0.196875" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_ambient_light_test.xml" value="0.22760416666666666" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_backlit_test.xml" value="0.3359375" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_bluetooth_test.xml" value="0.196875" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_bottom_container.xml" value="0.67" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_camera_test.xml" value="0.165625" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_gps_test.xml" value="0.18697916666666667" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_gravity_sensor_test.xml" value="0.2869791666666667" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_key_test.xml" value="0.3359375" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_lcd_test.xml" value="0.3359375" />
-        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_proximity_sensor_test.xml" value="0.3072916666666667" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_multi_finger_touch_test.xml" value="0.20833333333333334" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_proximity_sensor_test.xml" value="0.5" />
+        <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_rtc_test.xml" value="0.3515625" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_sim_card_test.xml" value="0.171875" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_single_finger_touch_test.xml" value="0.3359375" />
         <entry key="..\:/code/factory_test/FactoryTools/app/src/main/res/layout/layout_system_version_test.xml" value="0.3359375" />

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <color name="white">#ffffffff</color>
     <color name="green">#ff00ff00</color>
     <color name="red">#ffff0000</color>
@@ -8,4 +7,8 @@
     <color name="gray">#ff666666</color>
     <color name="orange">#ffff9900</color>
 
+    <!--测试颜色-->
+    <color name="color_normal_white">#ffffffff</color>
+    <color name="color_pass_green">#ff00ff00</color>
+    <color name="color_fail_red">#ffff0000</color>
 </resources>

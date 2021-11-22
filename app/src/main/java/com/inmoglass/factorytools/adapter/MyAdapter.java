@@ -13,24 +13,29 @@ import com.inmoglass.factorytools.R;
 
 import java.util.List;
 
+/**
+ * 蓝牙列表适配器
+ *
+ * @author Administrator
+ * @date 2021-11-22
+ */
 public class MyAdapter extends BaseAdapter {
-    private LayoutInflater mInflater;
-    private List<BluetoothDevice> mDatas;
+    private final LayoutInflater mInflater;
+    private final List<BluetoothDevice> mBlueToothDevicesData;
 
-    public MyAdapter(Context context, List<BluetoothDevice> datas) {
+    public MyAdapter(Context context, List<BluetoothDevice> blueToothDevicesData) {
         mInflater = LayoutInflater.from(context);
-        mDatas = datas;
+        mBlueToothDevicesData = blueToothDevicesData;
     }
 
-    //返回数据集的长度
     @Override
     public int getCount() {
-        return mDatas.size();
+        return mBlueToothDevicesData.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mDatas.get(position);
+        return mBlueToothDevicesData.get(position);
     }
 
     @Override
@@ -40,39 +45,39 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.item_listview, parent, false); //加载布局
+            convertView = mInflater.inflate(R.layout.item_listview, parent, false);
             holder = new ViewHolder();
-            holder.nameTv = (TextView) convertView.findViewById(R.id.tv_name);
-            holder.strengthTv = (TextView) convertView.findViewById(R.id.tv_strength);
+            holder.nameTv = convertView.findViewById(R.id.tv_name);
+            holder.strengthTv = convertView.findViewById(R.id.tv_strength);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        BluetoothDevice result = mDatas.get(position);
+        BluetoothDevice result = mBlueToothDevicesData.get(position);
         holder.nameTv.setText(result.getName());
         return convertView;
     }
 
     public void add(BluetoothDevice device) {
         if (!isContained(device)) {
-            mDatas.add(device);
+            mBlueToothDevicesData.add(device);
             notifyDataSetChanged();
         }
     }
 
     private boolean isContained(BluetoothDevice device) {
-        int length = mDatas.size();
+        int length = mBlueToothDevicesData.size();
         for (int i = 0; i < length; i++) {
-            if (TextUtils.equals(mDatas.get(i).getAddress(), device.getAddress())) {
+            if (TextUtils.equals(mBlueToothDevicesData.get(i).getAddress(), device.getAddress())) {
                 return true;
             }
         }
         return false;
     }
 
-    private class ViewHolder {
+    private static class ViewHolder {
         TextView nameTv;
         TextView strengthTv;
     }

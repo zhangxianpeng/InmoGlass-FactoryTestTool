@@ -21,10 +21,10 @@
 
                 <TextView
                     style="@style/itemTextTitleStyle"
-                    android:text="@string/battery_test_charging_status" />
+                    android:text="@string/wifi_test_isconnected" />
 
                 <TextView
-                    android:id="@+id/tv_charging_status"
+                    android:id="@+id/tv_wifi_connected"
                     style="@style/itemTextTitleStyle" />
 
             </LinearLayout>
@@ -36,11 +36,12 @@
 
                 <TextView
                     style="@style/itemTextTitleStyle"
-                    android:text="@string/battery_test_left_battery" />
+                    android:text="@string/wifi_test_name" />
 
                 <TextView
-                    android:id="@+id/tv_left_battery"
+                    android:id="@+id/tv_wifi_name"
                     style="@style/itemTextTitleStyle" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -50,40 +51,13 @@
 
                 <TextView
                     style="@style/itemTextTitleStyle"
-                    android:text="@string/battery_test_current_dianliu" />
+                    android:text="@string/wifi_test_strength" />
 
                 <TextView
-                    android:id="@+id/tv_current_dianliu"
+                    android:id="@+id/tv_wifi_strength"
                     style="@style/itemTextTitleStyle" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/itemTextTitleStyle"
-                    android:text="@string/battery_test_current_dianya" />
-
-                <TextView
-                    android:id="@+id/tv_current_dianya"
-                    style="@style/itemTextTitleStyle" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/itemTextTitleStyle"
-                    android:text="@string/battery_test_temperature" />
-
-                <TextView
-                    android:id="@+id/tv_battery_temperature"
-                    style="@style/itemTextTitleStyle" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
@@ -94,4 +68,3 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>
-

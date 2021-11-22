@@ -2,12 +2,10 @@ package com.inmoglass.factorytools;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.PowerManager;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,12 +13,14 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.AdaptScreenUtils;
+
 /**
  * 测试项的基类
  */
 public abstract class AbstractTestActivity extends Activity implements View.OnClickListener {
 
-    protected static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000;
+    protected static final int FLAG_HOME_KEY_DISPATCHED = 0x80000000;
     protected static final int MSG_FAIL = 0;
     protected static final int MSG_PASS = 1;
 
@@ -30,15 +30,19 @@ public abstract class AbstractTestActivity extends Activity implements View.OnCl
 
     protected FactoryToolsApplication mApplication;
 
-    // 是否是自动测试模式
+    /**
+     * 是否是自动测试模式
+     */
     protected boolean mIsAutoTest;
-    // 自动测试时，自动测试下一个测试项的时间
+    /**
+     * 自动测试时，自动测试下一个测试项的时间
+     */
     protected int mAutoTestDelayTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // 允许应用获取Home键事件
-        getWindow().addFlags(FLAG_HOMEKEY_DISPATCHED);
+        getWindow().addFlags(FLAG_HOME_KEY_DISPATCHED);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         // 全屏显示
@@ -104,7 +108,6 @@ public abstract class AbstractTestActivity extends Activity implements View.OnCl
                 case R.id.pass:
                     mApplication.setTestState(index, className, TestItem.State.PASS);
                     break;
-
                 case R.id.fail:
                     mApplication.setTestState(index, className, TestItem.State.FAIL);
                     break;
@@ -160,4 +163,8 @@ public abstract class AbstractTestActivity extends Activity implements View.OnCl
         }
     };
 
+    @Override
+    public Resources getResources() {
+        return AdaptScreenUtils.adaptWidth(super.getResources(), 640);
+    }
 }

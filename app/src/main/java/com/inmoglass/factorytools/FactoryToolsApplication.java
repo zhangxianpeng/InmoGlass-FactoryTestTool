@@ -6,14 +6,19 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.LogUtils;
+
 import java.util.ArrayList;
 
 /**
- * （１）在应用创建时，初始化所有测试项。
- * （２）
+ * FactoryToolsApplication
+ *
+ * @author Administrator
+ * @date 2021-11-15
+ * 初始化所有测试项
  */
 public class FactoryToolsApplication extends Application {
-
+    private static final String TAG = FactoryToolsApplication.class.getSimpleName();
     private Resources mResources;
     private FactoryToolsDatabase mFactoryToolsDatabase;
 
@@ -37,6 +42,10 @@ public class FactoryToolsApplication extends Application {
      * 屏幕测试项
      */
     private ArrayList<TestItem> mScreenTestList = new ArrayList<TestItem>();
+    /**
+     * 触摸板测试项
+     */
+    private ArrayList<TestItem> mTpTestList = new ArrayList<TestItem>();
     /**
      * 铃声测试项
      */
@@ -79,7 +88,6 @@ public class FactoryToolsApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         mResources = getResources();
         mFactoryToolsDatabase = FactoryToolsDatabase.getInstance(this);
         updateValues();
@@ -102,16 +110,15 @@ public class FactoryToolsApplication extends Application {
         updateTestList();
         updateSystemTestList();
         updateBatteryTestList();
-        updateScreenTestList();
-        updateRingTestList();
         updateSensorTestList();
         updateWirelessTestList();
+        updateScreenTestList();
+        updateTpTestList();
+        updateRingTestList();
         updateCameraTestList();
         updateMicroTestList();
         updateKeyTestList();
         updateUsbTestList();
-        updateTelephonyTestList();
-        updateAnnexTestList();
         updateAutoTestList();
     }
 
@@ -176,6 +183,22 @@ public class FactoryToolsApplication extends Application {
             for (int i = 0; i < length; i++) {
                 TestItem info = new TestItem(titles[i], getPackageName(), classes[i], mFactoryToolsDatabase.getTestState(classes[i]));
                 mScreenTestList.add(info);
+            }
+        }
+    }
+
+    /**
+     * 更新触摸板测试组测试列表信息。
+     */
+    public void updateTpTestList() {
+        mTpTestList.clear();
+        String[] titles = mResources.getStringArray(R.array.tp_test_title);
+        String[] classes = mResources.getStringArray(R.array.tp_test_class);
+        int length = (titles.length <= classes.length ? titles.length : classes.length);
+        if (length > 0) {
+            for (int i = 0; i < length; i++) {
+                TestItem info = new TestItem(titles[i], getPackageName(), classes[i], mFactoryToolsDatabase.getTestState(classes[i]));
+                mTpTestList.add(info);
             }
         }
     }
@@ -341,18 +364,6 @@ public class FactoryToolsApplication extends Application {
             }
         }
 
-        if (mScreenTestList.size() > 0) {
-            for (int i = 0; i < mScreenTestList.size(); i++) {
-                mAutoTestList.add(mScreenTestList.get(i));
-            }
-        }
-
-        if (mRingTestList.size() > 0) {
-            for (int i = 0; i < mRingTestList.size(); i++) {
-                mAutoTestList.add(mRingTestList.get(i));
-            }
-        }
-
         if (mSensorTestList.size() > 0) {
             for (int i = 0; i < mSensorTestList.size(); i++) {
                 mAutoTestList.add(mSensorTestList.get(i));
@@ -362,6 +373,24 @@ public class FactoryToolsApplication extends Application {
         if (mWirelessTestList.size() > 0) {
             for (int i = 0; i < mWirelessTestList.size(); i++) {
                 mAutoTestList.add(mWirelessTestList.get(i));
+            }
+        }
+
+        if (mScreenTestList.size() > 0) {
+            for (int i = 0; i < mScreenTestList.size(); i++) {
+                mAutoTestList.add(mScreenTestList.get(i));
+            }
+        }
+
+        if (mTpTestList.size() > 0) {
+            for (int i = 0; i < mTpTestList.size(); i++) {
+                mAutoTestList.add(mTpTestList.get(i));
+            }
+        }
+
+        if (mRingTestList.size() > 0) {
+            for (int i = 0; i < mRingTestList.size(); i++) {
+                mAutoTestList.add(mRingTestList.get(i));
             }
         }
 
@@ -400,7 +429,7 @@ public class FactoryToolsApplication extends Application {
                 mAutoTestList.add(mAnnexTestList.get(i));
             }
         }
-        Log.d(this, "updateAutoTestList=>size: " + mAutoTestList.size());
+        LogUtils.d(TAG, "updateAutoTestList=>size: " + mAutoTestList.size());
     }
 
     /**
@@ -452,12 +481,40 @@ public class FactoryToolsApplication extends Application {
         return mBatteryTestList;
     }
 
+    public ArrayList<TestItem> getSensorTestList() {
+        return mSensorTestList;
+    }
+
+    public ArrayList<TestItem> getWirelessTestList() {
+        return mWirelessTestList;
+    }
+
     public ArrayList<TestItem> getScreenTestList() {
         return mScreenTestList;
     }
 
+    public ArrayList<TestItem> getTpTestList() {
+        return mTpTestList;
+    }
+
     public ArrayList<TestItem> getRingTestList() {
         return mRingTestList;
+    }
+
+    public ArrayList<TestItem> getCameraTestList() {
+        return mCameraTestList;
+    }
+
+    public ArrayList<TestItem> getMicroTestList() {
+        return mMicroTestList;
+    }
+
+    public ArrayList<TestItem> getKeyTestList() {
+        return mKeyTestList;
+    }
+
+    public ArrayList<TestItem> getUsbTestList() {
+        return mUsbTestList;
     }
 
     public ArrayList<TestItem> getTelephonyTestList() {
@@ -466,30 +523,6 @@ public class FactoryToolsApplication extends Application {
 
     public ArrayList<TestItem> getAnnexTestList() {
         return mAnnexTestList;
-    }
-
-    public ArrayList<TestItem> getWirelessTestList() {
-        return mWirelessTestList;
-    }
-
-    public ArrayList<TestItem> getSensorTestList() {
-        return mSensorTestList;
-    }
-
-    public ArrayList<TestItem> getCameraTestList() {
-        return mCameraTestList;
-    }
-
-    public ArrayList<TestItem> getUsbTestList() {
-        return mUsbTestList;
-    }
-
-    public ArrayList<TestItem> getKeyTestList() {
-        return mKeyTestList;
-    }
-
-    public ArrayList<TestItem> getMicroTestList() {
-        return mMicroTestList;
     }
 
     public ArrayList<TestItem> getAutoTestList() {
@@ -565,7 +598,7 @@ public class FactoryToolsApplication extends Application {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(Utils.EXTRA_AUTO_TEST, true);
             intent.putExtra(Utils.EXTRA_PARENT, this.getClass().getSimpleName());
-            Log.d(this, "startAutoTest=>intent: " + intent);
+            LogUtils.d(TAG, "startAutoTest=>intent: " + intent);
             try {
                 startActivity(intent);
             } catch (Exception e) {
@@ -577,10 +610,10 @@ public class FactoryToolsApplication extends Application {
     }
 
     /**
-     * 自动测试中，测试下一个测试项。
+     * 自动测试中，测试下一个测试项
      */
     public void startNextTest() {
-        Log.d(this, "startAutoTest=>size: " + mAutoTestList.size() + " testPosition: " + mTestPosition);
+        LogUtils.d(TAG, "startAutoTest=>size: " + mAutoTestList.size() + " testPosition: " + mTestPosition);
         if (mAutoTestList.size() > 0) {
             if (mTestPosition < mAutoTestList.size()) {
                 TestItem info = mAutoTestList.get(mTestPosition);
@@ -588,11 +621,11 @@ public class FactoryToolsApplication extends Application {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra(Utils.EXTRA_AUTO_TEST, true);
                 intent.putExtra(Utils.EXTRA_PARENT, this.getClass().getSimpleName());
-                Log.d(this, "startAutoTest=>intent: " + intent);
+                LogUtils.d(TAG, "startAutoTest=>intent: " + intent);
                 try {
                     startActivity(intent);
                 } catch (Exception e) {
-                    Log.d(this, "startAutoTest=>error: ", e);
+                    LogUtils.e(TAG, "startAutoTest=>error: ", e.getMessage());
                     Toast.makeText(this, R.string.not_found_test, Toast.LENGTH_SHORT).show();
                 }
                 mTestPosition++;

@@ -6,12 +6,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.inmoglass.factorytools.AbstractTestActivity;
 import com.inmoglass.factorytools.R;
 
+/**
+ * USB测试项
+ *
+ * @author Administrator
+ * @date 2021-11-22
+ */
 public class UsbTestActivity extends AbstractTestActivity {
 
     // TODO: 2021/11/16 PASS FAIL的回调事件
@@ -46,7 +51,7 @@ public class UsbTestActivity extends AbstractTestActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if(mUsbStateChangeReceiver!=null) {
+        if (mUsbStateChangeReceiver != null) {
             unregisterReceiver(mUsbStateChangeReceiver);
         }
     }

@@ -44,6 +44,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * 相机测试项
+ *
+ * @author Administrator
+ * @date 2021-11-22
+ */
 public class CameraTestActivity extends AbstractTestActivity {
 
     private static final String TAG = CameraTestActivity.class.getSimpleName();
@@ -353,7 +359,7 @@ public class CameraTestActivity extends AbstractTestActivity {
     // 拍照
     private void capture() {
         try {
-            if(mCameraDevice == null) {
+            if (mCameraDevice == null) {
                 return;
             }
             //首先我们创建请求拍照的CaptureRequest
@@ -385,7 +391,7 @@ public class CameraTestActivity extends AbstractTestActivity {
         }
     }
 
-    public  class ImageSaver implements Runnable {
+    public class ImageSaver implements Runnable {
         private Image mImage;
 
         public ImageSaver(Image image) {

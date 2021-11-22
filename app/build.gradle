@@ -11,8 +11,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,20 +21,18 @@ android {
     }
 }
 
-dependencies {
-//    provided files(getLayoutLibPath())
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    testCompile 'junit:junit:4.12'
-
-    implementation files('libs\\layoutlib.jar')
-}
-
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'com.android.support:appcompat-v7:24.2.1'
+    // android 原生
+    implementation files('libs\\layoutlib.jar')
+    implementation 'com.blankj:utilcode:1.30.1'
+}
+
+
 

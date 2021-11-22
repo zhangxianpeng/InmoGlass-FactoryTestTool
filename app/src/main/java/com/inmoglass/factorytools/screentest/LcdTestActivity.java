@@ -8,20 +8,24 @@ import com.inmoglass.factorytools.Log;
 import com.inmoglass.factorytools.R;
 import com.inmoglass.factorytools.view.LCDTestView;
 
+/**
+ * 光机显示测试
+ *
+ * @author Administrator
+ * @date 2021-11-19
+ * 测试标准： 纯色黑色、白色、绿色、蓝色、红色画面自动滚动，每个纯色画面显示3S判断测试。光机显示无漏光现象屏幕画面完整，无倾斜及断点画面判断通过
+ */
 public class LcdTestActivity extends AbstractTestActivity implements LCDTestView.CallBack {
 
     private LCDTestView mLcdTestView;
-
     private int mNextColorDelayed;
     private boolean mIsFinish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().addFlags(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        getWindow().addFlags(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_lcd_test);
-        setTitle(R.string.lcd_test_title);
+        setTitle(R.string.screen_test_lcd);
         mIsFinish = false;
         mNextColorDelayed = getResources().getInteger(R.integer.lcd_test_next_color_delayed);
     }
@@ -29,7 +33,7 @@ public class LcdTestActivity extends AbstractTestActivity implements LCDTestView
     @Override
     protected void onStart() {
         super.onStart();
-        mLcdTestView = (LCDTestView) findViewById(R.id.lcd_test_view);
+        mLcdTestView = findViewById(R.id.lcd_test_view);
         mLcdTestView.setCallBack(this);
         mLcdTestView.setAutoTest(mIsAutoTest);
         mLcdTestView.setOnClickListener(mLcdTestViewClickListener);
@@ -54,9 +58,7 @@ public class LcdTestActivity extends AbstractTestActivity implements LCDTestView
     @Override
     protected void onResume() {
         super.onResume();
-        if (mIsAutoTest) {
-            mHandler.postDelayed(mLcdTestRunable, mNextColorDelayed);
-        }
+        mHandler.postDelayed(mLcdTestRunable, mNextColorDelayed);
     }
 
     private View.OnClickListener mLcdTestViewClickListener = new View.OnClickListener() {
@@ -66,7 +68,7 @@ public class LcdTestActivity extends AbstractTestActivity implements LCDTestView
         }
     };
 
-    private Runnable mLcdTestRunable = new Runnable() {
+    private final Runnable mLcdTestRunable = new Runnable() {
         @Override
         public void run() {
             if (!mIsFinish) {

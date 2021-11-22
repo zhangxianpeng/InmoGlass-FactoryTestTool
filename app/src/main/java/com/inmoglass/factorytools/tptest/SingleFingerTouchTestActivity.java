@@ -1,4 +1,4 @@
-package com.inmoglass.factorytools.screentest;
+package com.inmoglass.factorytools.tptest;
 
 import android.os.Bundle;
 import android.view.View;
