@@ -8,70 +8,39 @@
     <!--系统测试-->
     <string name="system_test">系统测试</string>
     <string name="system_test_info">系统信息</string>
-    <string name="system_test_android_version">安卓版本</string>
-    <string name="system_test_linux_version">Linux版本</string>
-    <string name="system_test_gujian_version">固件版本</string>
-    <string name="system_test_xitong_time">系统时间</string>
+    <string name="system_test_android_version">安卓版本:</string>
+    <string name="system_test_gujian_version">固件版本:</string>
+    <string name="system_test_xitong_time">系统时间:</string>
+    <string name="system_test_device_name">设备名:</string>
 
     <!--电池信息测试-->
     <string name="battery_test">电池测试</string>
     <string name="battery_test_info">电池信息</string>
     <string name="battery_test_left_battery">剩余电量:</string>
-    <string name="battery_test_voltage">电池电压:</string>
     <string name="battery_test_temperature">电池温度:</string>
     <string name="battery_test_current_dianliu">当前电流:</string>
     <string name="battery_test_current_dianya">当前电压:</string>
-    <string name="battery_test_standby_current">待机电流:</string>
-    <string name="battery_test_charging_current">充电电流:</string>
     <string name="battery_test_charging_status">充电状态:</string>
     <string name="battery_test_charging">充电中</string>
     <string name="battery_test_no_charging">未充电</string>
 
     <!--传感器测试-->
     <string name="sensor_test">传感器测试</string>
-    <string name="sensor_test_compass">指南针测试</string>
-    <string name="sensor_test_acceleration_of_gravity">重力加速度测试</string>
+    <string name="sensor_test_acceleration_of_gravity">重力传感器测试</string>
+    <string name="sensor_test_compass">磁力传感器测试</string>
     <string name="sensor_test_gyro">陀螺仪测试</string>
-    <string name="sensor_test_pressure">压力</string>
-    <string name="sensor_test_altitude">高度</string>
+
+    <string name="sensor_test_gravity_show_msg">倾斜手机，是否可以看到箭头？</string>
+    <string name="sensor_test_magnetic_title">磁力传感器正在测试中...</string>
+    <string name="sensor_test_magnetic_info">请晃动手机观察XYZ值的变化！</string>
     <string name="sensor_test_gyro_testing">陀螺仪正在测试中。。。</string>
     <string name="sensor_test_gyro_warn">请以X/Y/Z为轴翻转手机！</string>
 
+    <string name="key_test_start_msg">点击按键开始测试...</string>
+    <string name="usb_test_start_msg">请将设备连接到电脑，查看电脑显示设备是否正常...</string>
+    <string name="otg_test_start_msg">插入OTG设备以开始测试</string>
+
     <!--指南针-->
-    <string name="location_north">North Latitude</string>
-    <string name="location_south">South Latitude</string>
-    <string name="location_east">East Longitude</string>
-    <string name="location_west">West Longitude</string>
-    <string name="north">N</string>
-    <string name="east_north">NE</string>
-    <string name="east">E</string>
-    <string name="east_south">SE</string>
-    <string name="south">S</string>
-    <string name="west_south">SW</string>
-    <string name="west">W</string>
-    <string name="west_north">NW</string>
-    <string name="pressure">"Pressure "</string>
-    <string name="altitude">"Altitude "</string>
-    <string name="ali_dlg_confirm_mobile">"Allow Compass to access your location through the Internet and calibrate the elevation? It may incur a small amount of data usage."</string>
-    <string name="ali_dlg_confirm_mobile_1">"Allow Compass to access your location through the Internet? It may incur a small amount of data usage."</string>
-    <string name="dlg_ok">"OK"</string>
-    <string name="cancel">"Cancel"</string>
-    <string name="en_vertical_north">N</string>
-    <string name="en_vertical_east_north">NE</string>
-    <string name="en_vertical_east">E</string>
-    <string name="en_vertical_east_south">SE</string>
-    <string name="en_vertical_south">S</string>
-    <string name="en_vertical_west_south">SW</string>
-    <string name="en_vertical_west">W</string>
-    <string name="en_vertical_west_north">NW</string>
-    <string name="ch_vertical_north">北</string>
-    <string name="ch_vertical_east_north">东北</string>
-    <string name="ch_vertical_east">东</string>
-    <string name="ch_vertical_east_south">东南</string>
-    <string name="ch_vertical_south">南</string>
-    <string name="ch_vertical_west_south">西南</string>
-    <string name="ch_vertical_west">西</string>
-    <string name="ch_vertical_west_north">西北</string>
 
     <!--无线测试 wifi+蓝牙-->
     <string name="wireless_test">无线连接测试</string>
@@ -92,25 +61,18 @@
 
     <!--屏幕测试-->
     <string name="screen_test">光机显示测试</string>
-    <string name="screen_test_led">LED灯测试</string>
     <string name="screen_test_lcd">光机显示测试</string>
     <string name="screen_test_lcd_back_light">光机显示背光测试</string>
 
     <!--摄像头测试-->
-    <string name="camera_test">摄像头测试</string>
 
     <!--麦克测试-->
-    <string name="micro_test">麦克风测试</string>
     <string name="micro_test_item">麦克风录音播放测试</string>
 
-    <string name="usb_test">USB测试</string>
     <string name="otg_test">OTG测试</string>
 
     <string name="auto_test_title">Auto Test</string>
     <string name="ring_test_title">Ring Test</string>
-    <string name="telephony_test_title">Telephony Test</string>
-    <string name="annex_test_title">Annex Test</string>
-    <string name="wireless_test_title">Wireless Test</string>
     <string name="camera_test_title">Camera Test</string>
     <string name="key_test_title">Key Test</string>
     <string name="usb_test_title">USB接口测试</string>
@@ -118,9 +80,6 @@
     <string name="test_report_title">Test Report</string>
     <string name="not_found_test">Test items not found</string>
     <string name="not_found_test_index">Test items index not found</string>
-
-    <string name="rf_cali_test_title">RF CALI Test</string>
-    <string name="rtc_test_title">RTC Test</string>
 
 
     <string name="single_finger_touch_test_title">Single Finger Touch Test</string>
@@ -133,10 +92,8 @@
     <string name="sdcard_test_title">SD Card Test</string>
     <string name="charging_test_title">Charging Test</string>
     <string name="headset_test_title">Headset Test</string>
-    <string name="fmradio_test_title">FM Radio Test</string>
     <string name="wifi_test_title">WIFI Test</string>
     <string name="bluetooth_test_title">Bluetooth Test</string>
-    <string name="gps_test_title">GPS Test</string>
     <string name="android_version_title">Android Version: </string>
     <string name="kernel_version_title">Kernel Version: </string>
     <string name="system_version_title">System Version: </string>
@@ -145,10 +102,6 @@
 
     <string name="disabled_key_tip">Please press "pass" or "fail" to exit test</string>
 
-    <string name="rf_cali_test_sn_title">SN: </string>
-    <string name="rf_cali_test_calibration_title">Calibration: </string>
-    <string name="rf_cali_test_comprehensive_test_title">Comprehensive Test:</string>
-
     <string name="lcd_test_view_start_tip">Touch Continue</string>
     <string name="lcd_test_view_end_tip">LCD test is complete</string>
 
@@ -156,31 +109,11 @@
     <string name="vibration_test_tip">Touch screen vibration</string>
 
     <!--电池测试-->
-    <string name="battery_voltage_test_title">Voltage Test</string>
-    <string name="battery_standby_current_test_title">StandBy Current Test</string>
-    <string name="battery_charging_status_test_title">Charging Status Test</string>
-    <string name="battery_voltage">Battery Voltage</string>
-    <string name="battery_current_value">当前电量</string>
-    <string name="batter_voltage_judge">评判标准:3.8V-4.2V为正常范围</string>
-
-    <string name="battery_standby_current">待机电流</string>
-    <string name="battery_charging_status">充电状态</string>
-    <string name="battery_charging_current">充电电流</string>
-    <string name="sensor_show_msg">倾斜手机，是否可以看到箭头？</string>
 
     <!-- GPS test -->
-    <string name="gps_title_text">GPS Test</string>
-    <string name="gps_result_ok">The GPS test passes!</string>
-    <string name="gps_result_failure">The GPS test fails!</string>
-    <string name="gps_satellite_msg">The satellite count is </string>
-    <string name="gps_not_enabled_msg">The GPS is not enabled</string>
-    <string name="gps_show_settings">Show GPS Settings</string>
-    <string name="gps_time_msg">Seconds passed</string>
 
     <!--陀螺仪测试-->
 
 
     <!--地磁测试-->
-    <string name="m_sensor_calibration_tips">Magnetic Sensor is Calibrating...Please put your phone flat,Do not shaking it!</string>
-    <string name="m_sensor_calibration_fail">Magnetic Sensor calibration fail, it needes to import the calibration data!</string>
 </resources>

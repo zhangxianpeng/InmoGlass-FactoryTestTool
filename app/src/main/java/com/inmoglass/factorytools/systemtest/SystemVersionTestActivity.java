@@ -7,96 +7,49 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.TimeUtils;
 import com.inmoglass.factorytools.AbstractTestActivity;
-import com.inmoglass.factorytools.Log;
 import com.inmoglass.factorytools.R;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class SystemVersionTestActivity extends AbstractTestActivity {
 
+    private TextView mDeviceNameTv;
     private TextView mAndroidVersionTv;
-    private TextView mKernalVersionTv;
     private TextView mSystemVersionTv;
-    private TextView mDeviceSerialNumberTv;
     private TextView mSystemTimeTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.system_test);
-        setContentView(R.layout.layout_system_version_test);
+        setContentView(R.layout.activity_system_version_test);
         initViews();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        String deviceName = android.os.Build.DEVICE;
         String androidVersion = Build.VERSION.RELEASE;
-        String kernelVersion = getKernalVersion();
         String systemVersion = Build.DISPLAY;
-        String deviceSerialNumber = getDeviceSerialNumber();
+        String currentTime = TimeUtils.getNowString();
+
+        mDeviceNameTv.setText(TextUtils.isEmpty(deviceName) ? getString(R.string.unknown) : deviceName);
         mAndroidVersionTv.setText(TextUtils.isEmpty(androidVersion) ? getString(R.string.unknown) : androidVersion);
-        mKernalVersionTv.setText(TextUtils.isEmpty(kernelVersion) ? getString(R.string.unknown) : kernelVersion);
         mSystemVersionTv.setText(TextUtils.isEmpty(systemVersion) ? getString(R.string.unknown) : systemVersion);
-        mDeviceSerialNumberTv.setText(TextUtils.isEmpty(deviceSerialNumber) ? getString(R.string.unknown) : deviceSerialNumber);
+        mSystemTimeTv.setText(TextUtils.isEmpty(currentTime) ? getString(R.string.unknown) : currentTime);
+
         if (mIsAutoTest) {
-            if (!TextUtils.isEmpty(androidVersion) && !TextUtils.isEmpty(kernelVersion) && !TextUtils.isEmpty(systemVersion)
-                    && !TextUtils.isEmpty(deviceSerialNumber)) {
+            if (!TextUtils.isEmpty(deviceName) && !TextUtils.isEmpty(androidVersion) && !TextUtils.isEmpty(systemVersion) && !TextUtils.isEmpty(currentTime)) {
                 mHandler.sendEmptyMessageDelayed(MSG_PASS, mAutoTestDelayTime);
             } else {
                 mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
             }
         }
-
-        mSystemTimeTv.setText(TimeUtils.getNowString());
     }
 
     private void initViews() {
-        mAndroidVersionTv = (TextView) findViewById(R.id.android_version);
-        mKernalVersionTv = (TextView) findViewById(R.id.kernal_version);
-        mSystemVersionTv = (TextView) findViewById(R.id.system_version);
-        mDeviceSerialNumberTv = (TextView) findViewById(R.id.device_serial_number);
+        mDeviceNameTv = findViewById(R.id.tv_device_name);
+        mAndroidVersionTv = findViewById(R.id.tv_android_version);
+        mSystemVersionTv = findViewById(R.id.system_version);
         mSystemTimeTv = findViewById(R.id.tv_system_time);
-    }
-
-    private String getKernalVersion() {
-        String version = null;
-        BufferedReader reader = null;
-        StringBuffer versionBuffer = new StringBuffer();
-
-        try {
-            FileInputStream fi = new FileInputStream("/proc/version");
-            reader = new BufferedReader(new InputStreamReader(fi));
-            String str = reader.readLine();
-
-            while (str != null) {
-                versionBuffer.append(str + "\n");
-                str = reader.readLine();
-            }
-        } catch (Exception e) {
-            versionBuffer = null;
-            Log.d(this, "getKernalVersion=>error: ", e);
-        } finally {
-            if (versionBuffer != null) {
-                version = versionBuffer.toString();
-            }
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        Log.d(this, "getKernalVersion=>kernal version: " + version);
-        return version;
-    }
-
-    private String getDeviceSerialNumber() {
-        String serialNumber = android.os.Build.SERIAL;
-        return serialNumber;
     }
 }

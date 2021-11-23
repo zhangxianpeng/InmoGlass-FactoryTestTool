@@ -25,7 +25,6 @@
         <item>@string/micro_test_title</item>
         <item>@string/key_test_title</item>
         <item>@string/usb_test_title</item>
-        <item>@string/test_report_title</item>
     </string-array>
 
     <!--测试列表类名-->
@@ -40,7 +39,6 @@
         <item>com.inmoglass.factorytools.microtest.MicroTestList</item>
         <item>com.inmoglass.factorytools.keytest.KeyTestList</item>
         <item>com.inmoglass.factorytools.usbtest.USBTestList</item>
-        <item>com.inmoglass.factorytools.TestReportActivity</item>
     </string-array>
 
     <!--系统测试列表标题-->
@@ -65,15 +63,15 @@
 
     <!--传感器测试列表标题-->
     <string-array name="sensor_test_title">
-        <item>@string/sensor_test_compass</item>
         <item>@string/sensor_test_acceleration_of_gravity</item>
+        <item>@string/sensor_test_compass</item>
         <item>@string/sensor_test_gyro</item>
     </string-array>
 
     <!--传感器测试列表类名-->
     <string-array name="sensor_test_class">
-        <item>com.inmoglass.factorytools.sensortest.CompassSensorTestActivity</item>
         <item>com.inmoglass.factorytools.sensortest.GravitySensorTestActivity</item>
+        <item>com.inmoglass.factorytools.sensortest.MagneticSensorTestActivity</item>
         <item>com.inmoglass.factorytools.sensortest.GyroSensorTestActivity</item>
     </string-array>
 

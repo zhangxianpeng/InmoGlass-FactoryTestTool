@@ -21,6 +21,7 @@ import com.inmoglass.factorytools.R;
  * @date 2021-11-18
  */
 public class VoltageActivity extends AbstractTestActivity {
+
     private static final String TAG = VoltageActivity.class.getSimpleName();
     private TextView mChargingStatusTv;
     private TextView mLeftBatteryTv;
@@ -84,7 +85,6 @@ public class VoltageActivity extends AbstractTestActivity {
         registerReceiver(mReceiver, filter);
 
         BatteryManager batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
-
         // BATTERY_PROPERTY_CURRENT_AVERAGE 平均电流 单位：微安
         LogUtils.i("BATTERY_PROPERTY_CURRENT_AVERAGE=" + batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_AVERAGE));
         // 瞬时电流 单位：微安

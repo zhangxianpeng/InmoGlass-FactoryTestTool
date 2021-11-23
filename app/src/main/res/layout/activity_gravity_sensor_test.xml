@@ -10,68 +10,88 @@
         android:orientation="vertical">
 
         <TextView
-            style="@style/itemTextTitleStyle"
-            android:gravity="center"
-            android:text="@string/sensor_test_acceleration_of_gravity" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="@string/sensor_test_gravity_show_msg"
+            android:textColor="@color/white"
+            android:textSize="16pt" />
 
-            <TextView
-                style="@style/itemTextTitleStyle"
-                android:text="X:" />
-
-            <TextView
-                android:id="@+id/tv_sensor_x"
-                style="@style/itemTextTitleStyle"
-                android:layout_width="200dp"
-                android:layout_marginStart="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tv_msg_gsensor"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:textColor="@color/white"
+            android:textSize="16pt" />
 
-            <TextView
-                style="@style/itemTextTitleStyle"
-                android:text="Y:" />
-
-            <TextView
-                android:id="@+id/tv_sensor_y"
-                style="@style/itemTextTitleStyle"
-                android:layout_width="200dp"
-                android:layout_marginStart="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="X:"
+            android:textColor="@color/white"
+            android:textSize="16pt" />
 
-            <TextView
-                style="@style/itemTextTitleStyle"
-                android:text="Z:" />
+        <TextView
+            android:id="@+id/tv_sensor_x"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:textColor="@color/color_pass_green"
+            android:textSize="16pt" />
 
-            <TextView
-                android:id="@+id/tv_sensor_z"
-                style="@style/itemTextTitleStyle"
-                android:layout_width="200dp"
-                android:layout_marginStart="10dp" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="Y:"
+            android:textColor="@color/white"
+            android:textSize="16pt" />
 
+        <TextView
+            android:id="@+id/tv_sensor_y"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:textColor="@color/color_pass_green"
+            android:textSize="16pt" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="Z:"
+            android:textColor="@color/white"
+            android:textSize="16pt" />
+
+        <TextView
+            android:id="@+id/tv_sensor_z"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:textColor="@color/color_pass_green"
+            android:textSize="16pt" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="100dip"
-            android:visibility="gone">
+            android:layout_height="wrap_content"
+            android:padding="100dip">
 
             <TextView
                 android:id="@+id/txt_sensor_arrow_up"
@@ -93,7 +113,7 @@
                 android:id="@+id/txt_sensor_arrow_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:background="@null" />
 
@@ -101,7 +121,7 @@
                 android:id="@+id/txt_sensor_arrow_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:background="@null" />
         </RelativeLayout>

@@ -13,9 +13,7 @@ import android.widget.ListView;
 import com.inmoglass.factorytools.AbstractTestActivity;
 import com.inmoglass.factorytools.R;
 import com.inmoglass.factorytools.adapter.MyAdapter;
-import com.inmoglass.factorytools.util.BlueToothUtil;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,16 +37,6 @@ public class BluetoothTestActivity extends AbstractTestActivity {
         setTitle(R.string.wireless_test_bluetooth);
         bleLv = findViewById(R.id.lv_ble);
         initAdapter();
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (myAdapter != null && myAdapter.getCount() > 0) {
-                    mHandler.sendEmptyMessageDelayed(MSG_PASS, mAutoTestDelayTime);
-                } else {
-                    mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
-                }
-            }
-        }, 10000);
     }
 
     private List<BluetoothDevice> resultList;
@@ -62,6 +50,9 @@ public class BluetoothTestActivity extends AbstractTestActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(BluetoothDevice.ACTION_FOUND);
+        registerReceiver(singBroadcastReceiver, filter);
         getBleInfo();
     }
 
@@ -70,10 +61,6 @@ public class BluetoothTestActivity extends AbstractTestActivity {
         super.onDestroy();
         if (singBroadcastReceiver != null) {
             unregisterReceiver(singBroadcastReceiver);
-        }
-        if (mBlueToothUtil != null) {
-            mBlueToothUtil.offBlueTooth();
-            mBlueToothUtil = null;
         }
     }
 
@@ -87,37 +74,21 @@ public class BluetoothTestActivity extends AbstractTestActivity {
                 if (myAdapter != null && device.getName() != null) {
                     myAdapter.add(device);
                 }
+                if (myAdapter != null && myAdapter.getCount() > 0) {
+                    mHandler.sendEmptyMessageDelayed(MSG_PASS, mAutoTestDelayTime);
+                } else {
+                    mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
+                }
             }
         }
     };
-
-    private BlueToothUtil mBlueToothUtil;
 
     /**
      * 获取附近范围的蓝牙信息
      */
     private void getBleInfo() {
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(singBroadcastReceiver, filter);
-        setDiscoverableTimeout();
-        mBlueToothUtil = new BlueToothUtil(this);
-        mBlueToothUtil.onBlueTooth();
-        mBlueToothUtil.startDiscovery();
-    }
-
-    private void setDiscoverableTimeout() {
-        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        try {
-            Method setDiscoverableTimeout = BluetoothAdapter.class.getMethod("setDiscoverableTimeout", int.class);
-            setDiscoverableTimeout.setAccessible(true);
-            Method setScanMode = BluetoothAdapter.class.getMethod("setScanMode", int.class, int.class);
-            setScanMode.setAccessible(true);
-            setDiscoverableTimeout.invoke(adapter, 0);
-            setScanMode.invoke(adapter, BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE, 0);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.e("Bluetooth", "setDiscoverableTimeout failure:" + e.getMessage());
-        }
+        BluetoothAdapter blueToothAdapter = BluetoothAdapter.getDefaultAdapter();
+        blueToothAdapter.enable();
+        blueToothAdapter.startDiscovery();
     }
 }

@@ -4,28 +4,5 @@
     <style name="AppTheme" parent="android:Theme.Material">
     </style>
 
-    <style name="LayoutStyle">
-        <item name="android:paddingVertical">35dp</item>
-        <item name="android:paddingHorizontal">40dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">match_parent</item>
-    </style>
-
-    <style name="LayoutTitleStyle">
-        <item name="android:layout_marginBottom">20dp</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">32sp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-    </style>
-
-    <style name="itemTextTitleStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">18pt</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:padding">10pt</item>
-    </style>
-
 
 </resources>

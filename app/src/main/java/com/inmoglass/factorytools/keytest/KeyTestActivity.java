@@ -1,8 +1,8 @@
 package com.inmoglass.factorytools.keytest;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.KeyEvent;
+import android.widget.TextView;
 
 import com.inmoglass.factorytools.AbstractTestActivity;
 import com.inmoglass.factorytools.R;
@@ -15,36 +15,34 @@ import com.inmoglass.factorytools.R;
  */
 public class KeyTestActivity extends AbstractTestActivity {
 
-    private boolean mIsPass;
-    private Button universalBtn;
-    private Button otherBtn;
+    private TextView resultTv;
+    private String result = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.key_test);
-        setContentView(R.layout.layout_key_test);
+        setContentView(R.layout.activity_key_test);
         initViews();
     }
 
     private void initViews() {
-        universalBtn = findViewById(R.id.btn_wanneng);
-        otherBtn = findViewById(R.id.btn_other);
-        
-        universalBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO: 2021/11/22 万能按键 
-            }
-        });
-        
-        otherBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO: 2021/11/22 其他功能 
-            }
-        });
+        resultTv = findViewById(R.id.tv_result);
     }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == 26) {
+            result = "您点击了电源键";
+        } else if (keyCode == 289) {
+            result = "您点击了万能键";
+        }
+        resultTv.setText(result);
+        if (result.equals("")) {
+            mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
+        } else {
+            mHandler.sendEmptyMessageDelayed(MSG_PASS, mAutoTestDelayTime);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

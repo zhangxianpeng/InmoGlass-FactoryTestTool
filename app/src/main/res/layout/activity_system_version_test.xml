@@ -5,8 +5,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_button_container"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -16,12 +15,12 @@
             android:paddingTop="@dimen/test_item_padding"
             android:paddingRight="@dimen/test_item_padding"
             android:paddingBottom="@dimen/test_result_padding"
-            android:text="@string/wifi_test_isconnected"
+            android:text="@string/system_test_device_name"
             android:textColor="@color/white"
             android:textSize="16pt" />
 
         <TextView
-            android:id="@+id/tv_wifi_connected"
+            android:id="@+id/tv_device_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/test_item_padding"
@@ -35,17 +34,17 @@
             android:paddingTop="@dimen/test_item_padding"
             android:paddingRight="@dimen/test_item_padding"
             android:paddingBottom="@dimen/test_result_padding"
-            android:text="@string/wifi_test_name"
+            android:text="@string/system_test_android_version"
             android:textColor="@color/white"
-            android:textSize="16pt" />
+            android:textSize="@dimen/system_test_item_title_test_size" />
 
         <TextView
-            android:id="@+id/tv_wifi_name"
+            android:id="@+id/tv_android_version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/test_item_padding"
-            android:textColor="@color/color_pass_green"
-            android:textSize="16pt" />
+            android:textSize="16pt"
+            android:textColor="@color/color_pass_green"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -54,17 +53,36 @@
             android:paddingTop="@dimen/test_item_padding"
             android:paddingRight="@dimen/test_item_padding"
             android:paddingBottom="@dimen/test_result_padding"
-            android:text="@string/wifi_test_strength"
+            android:text="@string/system_test_gujian_version"
             android:textColor="@color/white"
-            android:textSize="16pt" />
+            android:textSize="@dimen/system_test_item_title_test_size" />
 
         <TextView
-            android:id="@+id/tv_wifi_strength"
+            android:id="@+id/system_version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/test_item_padding"
-            android:textColor="@color/color_pass_green"
-            android:textSize="16pt" />
+            android:textSize="16pt"
+            android:textColor="@color/color_pass_green"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="@string/system_test_xitong_time"
+            android:textColor="@color/white"
+            android:textSize="@dimen/system_test_item_title_test_size" />
+
+        <TextView
+            android:id="@+id/tv_system_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:textSize="16pt"
+            android:textColor="@color/color_pass_green"/>
     </LinearLayout>
 
     <include
@@ -74,3 +92,4 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>
+

@@ -4,36 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_button_container"
-        android:scrollbars="none">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/test_item_padding"
-                android:paddingTop="@dimen/test_item_padding"
-                android:paddingRight="@dimen/test_item_padding"
-                android:paddingBottom="@dimen/test_result_padding"
-                android:text="是否连接到电脑"
-                android:textColor="@color/green"
-                android:textSize="@dimen/system_test_item_title_test_size" />
-
-            <TextView
-                android:id="@+id/current_battery"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/test_item_padding"
-                android:textSize="@dimen/test_item_result_text_size" />
-        </LinearLayout>
-    </ScrollView>
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="@string/usb_test_start_msg"
+            android:textColor="@color/white"
+            android:textSize="16pt" />
+    </LinearLayout>
 
     <include
         android:id="@+id/bottom_button_container"

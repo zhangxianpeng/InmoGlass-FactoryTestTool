@@ -5,243 +5,45 @@
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_button_container">
+        android:layout_above="@+id/bottom_button_container"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="@string/sensor_test_magnetic_title"
+            android:textColor="@color/white"
+            android:textSize="16pt" />
 
-            <RelativeLayout
-                android:id="@+id/horizontal_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="@string/sensor_test_magnetic_info"
+            android:textColor="@color/white"
+            android:textSize="16pt" />
 
-                <LinearLayout
-                    android:id="@+id/angle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="40dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/angle_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginRight="-12dp"
-                        android:textColor="#FFFFFFFF"
-                        android:textIsSelectable="true"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:id="@+id/angle_direction"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:textColor="#FFFFFFFF"
-                        android:textIsSelectable="true"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/compass_mask"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/angle"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="12dp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/compass_level_mask" />
-
-                <com.inmoglass.factorytools.view.CompassView
-                    android:id="@+id/compass_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/angle"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="50dp"
-                    android:contentDescription="@string/app_name"
-                    android:gravity="center"
-                    android:src="@drawable/compass_level_detail" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/vertical_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:visibility="gone">
-
-                <LinearLayout
-                    android:id="@+id/info_vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="130dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/direction_vertical_en"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="24dp"
-                        android:textColor="#FFFFFFFF"
-                        android:textIsSelectable="true"
-                        android:textSize="32sp" />
-
-                    <TextView
-                        android:id="@+id/direction_vertical_ch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textColor="#FFFFFFFF"
-                        android:textIsSelectable="true"
-                        android:textSize="40sp" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/compass_mask_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/info_vertical"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="29dp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/compass_vertical_mask_1" />
-
-                <com.inmoglass.factorytools.view.CompassVerticalView
-                    android:id="@+id/compass_detail_vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/info_vertical"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="47dp"
-                    android:contentDescription="@string/app_name"
-                    android:gravity="center"
-                    android:src="@drawable/compass_vertical_detail" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/info_vertical"
-                    android:layout_marginTop="43dp"
-                    android:background="@drawable/compass_vertical_mask"
-                    android:contentDescription="@string/app_name" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/information"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="50dp"
-                    android:gravity="center_horizontal"
-                    android:textColor="#FFFFFFFF"
-                    android:textSize="16sp"
-                    android:visibility="gone" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/address"
-                    android:layout_marginBottom="24dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal"
-                    android:textIsSelectable="true">
-
-                    <LinearLayout
-                        android:id="@+id/lonlat_layout"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginRight="5dp"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:id="@+id/longitude"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="left"
-                            android:textColor="#FFFFFFFF"
-                            android:textIsSelectable="true"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/latitude"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:gravity="left"
-                            android:textColor="#FFFFFFFF"
-                            android:textIsSelectable="true"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/altpre_layout"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:id="@+id/altitude"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="left"
-                            android:textColor="#FFFFFFFF"
-                            android:textIsSelectable="true"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/pressure"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:gravity="left"
-                            android:textColor="#FFFFFFFF"
-                            android:textIsSelectable="true"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </RelativeLayout>
-
-        </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/tv_magnetic_xyz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:textColor="@color/color_pass_green"
+            android:textSize="16pt" />
+    </LinearLayout>
 
     <include
         android:id="@+id/bottom_button_container"
@@ -249,5 +51,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
-
 </RelativeLayout>

@@ -24,7 +24,6 @@
                 android:textSize="@dimen/system_test_item_title_test_size" />
 
             <TextView
-                android:id="@+id/android_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/test_item_padding" />
@@ -38,7 +37,6 @@
                 android:textSize="@dimen/system_test_item_title_test_size" />
 
             <TextView
-                android:id="@+id/kernal_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/test_item_padding" />
@@ -66,7 +64,6 @@
                 android:textSize="@dimen/system_test_item_title_test_size" />
 
             <TextView
-                android:id="@+id/device_serial_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/test_item_padding" />

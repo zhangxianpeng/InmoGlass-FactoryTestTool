@@ -8,6 +8,7 @@ public class TestReportActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.layout_key_test);
+        setTitle("Tset Re");
+        setContentView(R.layout.activity_test_report);
     }
 }
