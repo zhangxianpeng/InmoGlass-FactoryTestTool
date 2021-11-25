@@ -29,6 +29,7 @@ import android.util.Size;
 import android.util.SparseIntArray;
 import android.view.Surface;
 import android.view.TextureView;
+import android.view.View;
 
 import com.inmoglass.factorytools.AbstractTestActivity;
 import com.inmoglass.factorytools.R;
@@ -143,24 +144,18 @@ public class CameraTestActivity extends AbstractTestActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_camera_test);
+        setContentView(R.layout.activity_camera_test);
         getPermission();
         textureView = findViewById(R.id.surfaceView);
         textureView.setSurfaceTextureListener(textureListener);
 
-        // 5S后自动拍照
-        mHandler.postDelayed(new Runnable() {
+        // 手动拍照
+        findViewById(R.id.btn_take_picture).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
+            public void onClick(View v) {
                 capture();
             }
-        }, 5000);
-//        findViewById(R.id.takePicture).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        });
     }
 
     private void getPermission() {
@@ -194,8 +189,6 @@ public class CameraTestActivity extends AbstractTestActivity {
                 } else {
                     textureView.setAspectRatio(mPreviewSize.getHeight(), mPreviewSize.getWidth());
                 }
-
-
                 mCameraId = cameraId;
                 break;
             }

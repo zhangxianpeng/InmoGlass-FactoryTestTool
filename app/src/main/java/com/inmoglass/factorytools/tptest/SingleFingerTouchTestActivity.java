@@ -10,7 +10,6 @@ import com.inmoglass.factorytools.view.SingleTouchView;
 
 public class SingleFingerTouchTestActivity extends AbstractTestActivity implements SingleTouchView.CallBack {
 
-    private SingleTouchView mTouchView;
     private boolean mIsPass;
 
     @Override
@@ -22,7 +21,7 @@ public class SingleFingerTouchTestActivity extends AbstractTestActivity implemen
         setTitle(R.string.single_finger_touch_test_title);
         setContentView(R.layout.layout_single_finger_touch_test);
         getActionBar().hide();
-        mTouchView = (SingleTouchView) findViewById(R.id.single_touch_view);
+        SingleTouchView mTouchView = findViewById(R.id.single_touch_view);
         mTouchView.setCallBack(this);
         mIsPass = false;
     }

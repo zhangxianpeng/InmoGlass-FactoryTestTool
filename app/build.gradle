@@ -10,7 +10,16 @@ android {
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'coolpay'
+            keyPassword '1qaz@!QAZ'
+            storeFile file('coolpad.keystore')
+            storePassword '1qaz@!QAZ'
+        }
     }
 
     buildTypes {
@@ -19,10 +28,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "Glass-TestTool-V${variant.versionName}-T${releaseTime()}.apk"
+        }
+    }
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
+}
+
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {

@@ -47,8 +47,8 @@ public class LCDTestView extends View {
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(0xff000000);
         mPaint.setTextSize(28);
-        mStartTip = context.getString(R.string.lcd_test_view_start_tip);
-        mEndTip = context.getString(R.string.lcd_test_view_end_tip);
+        mStartTip = context.getString(R.string.screen_test_lcd_test_start);
+        mEndTip = context.getString(R.string.screen_test_lcd_test_end);
         mTestColors = res.getIntArray(R.array.lcd_test_colors);
         mHideStartTipDelayed = res.getInteger(R.integer.lcd_test_hide_start_tip_delayed);
         mShowEndTipDelayed = res.getInteger(R.integer.lcd_test_show_end_tip_delayed);

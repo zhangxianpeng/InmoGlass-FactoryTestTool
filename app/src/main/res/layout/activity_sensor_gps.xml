@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,24 +16,30 @@
             android:paddingTop="@dimen/test_item_padding"
             android:paddingRight="@dimen/test_item_padding"
             android:paddingBottom="@dimen/test_result_padding"
-            android:text="@string/key_test_start_msg"
+            android:text="@string/sensor_test_gps_title"
             android:textColor="@color/white"
             android:textSize="16pt" />
 
         <TextView
-            android:id="@+id/tv_wanneng_key_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/test_item_padding"
-            android:textColor="@color/color_pass_green"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="@string/sensor_test_weixing_number"
+            android:textColor="@color/white"
             android:textSize="16pt" />
 
         <TextView
-            android:id="@+id/tv_lock_key_result"
+            android:id="@+id/tv_weixing_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/test_item_padding"
-            android:textColor="@color/color_pass_green"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:textColor="@color/green"
             android:textSize="16pt" />
     </LinearLayout>
 
@@ -44,5 +49,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
-
 </RelativeLayout>

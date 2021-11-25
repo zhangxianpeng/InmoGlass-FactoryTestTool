@@ -11,12 +11,8 @@ import com.inmoglass.factorytools.Log;
 
 import java.util.ArrayList;
 
-/**
- * Created by user on 16-9-27.
- */
-
 public class SingleTouchView extends View {
-
+    private static final String TAG = SingleTouchView.class.getSimpleName();
     private Paint mNormalPaint;
     private Paint mPassPaint;
     private Paint mLinePaint;
@@ -50,9 +46,9 @@ public class SingleTouchView extends View {
         mRectWidth = 60;
         mLineWidth = 1;
         mTestPass = false;
-        mNormalColor = 0xffff0000;
-        mPassColor = 0xff00ff00;
-        mLineColoe = 0xff000000;
+        mNormalColor = 0xffff0000; // 红色
+        mPassColor = 0xff00ff00; // 绿色
+        mLineColoe = 0xff000000; // 黑色
         mNormalPaint = new Paint();
         mNormalPaint.setColor(mNormalColor);
         mNormalPaint.setAntiAlias(true);
@@ -68,9 +64,9 @@ public class SingleTouchView extends View {
         mLinePaint.setStrokeWidth(mLineWidth);
         mLinePaint.setStrokeJoin(Paint.Join.ROUND);
         mLinePaint.setStrokeCap(Paint.Cap.ROUND);
-        mRects = new ArrayList<TestRect>();
-        mLines = new ArrayList<ArrayList<PT>>();
-        mCurrentLine = new ArrayList<PT>();
+        mRects = new ArrayList<>();
+        mLines = new ArrayList<>();
+        mCurrentLine = new ArrayList<>();
     }
 
     @Override
@@ -124,7 +120,7 @@ public class SingleTouchView extends View {
                 if (!mTestPass) {
                     mLastPointX = mPointX = event.getX();
                     mLastPointY = mPointY = event.getY();
-                    mCurrentLine = new ArrayList<PT>();
+                    mCurrentLine = new ArrayList<>();
                     mCurrentLine.add(new PT(mPointX, mPointY));
                     mLines.add(mCurrentLine);
                     testRectPass(mPointX, mPointY);
@@ -148,7 +144,6 @@ public class SingleTouchView extends View {
                     invalidate();
                 }
                 break;
-
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 invalidate();
@@ -186,13 +181,13 @@ public class SingleTouchView extends View {
     }
 
     private void createRect() {
-        mRects = new ArrayList<TestRect>();
+        mRects = new ArrayList<>();
         int width = getWidth();
         int height = getHeight();
-        Log.d(this, "createRect=>width: " + width + " height: " + height);
+        Log.d(TAG, "createRect=>width: " + width + " height: " + height);
 
         for (int i = 0; i < width; i = i + mRectWidth) {
-            Log.d(this, "createRect=>i: " + i);
+            Log.d(TAG, "createRect=>i: " + i);
             TestRect topRect = new TestRect();
             topRect.top = 1;
             topRect.left = i + 1;
@@ -267,7 +262,7 @@ public class SingleTouchView extends View {
             rightDown.right = j + mRectWidth;
             rightDown.bottom = i + mRectWidth;
             mRects.add(rightDown);
-            Log.d(this, "createRect(rigthDown)=>i: " + i + " j: " + j);
+            Log.d(TAG, "createRect(rigthDown)=>i: " + i + " j: " + j);
         }
 
         if (mTestPass) {

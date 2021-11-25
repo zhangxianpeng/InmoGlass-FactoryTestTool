@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
@@ -17,9 +18,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/**
- * 测试组列表的基类
- */
 public abstract class AbstractListActivity extends ListActivity implements AdapterView.OnItemClickListener {
 
     protected FactoryToolsApplication mApplication;
@@ -28,6 +26,7 @@ public abstract class AbstractListActivity extends ListActivity implements Adapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initActionBar();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         mApplication = (FactoryToolsApplication) getApplication();
         getListView().setEmptyView(getEmptyView());
         getListView().setOnItemClickListener(this);
@@ -60,8 +59,7 @@ public abstract class AbstractListActivity extends ListActivity implements Adapt
     }
 
     private View getEmptyView() {
-        View view = getLayoutInflater().inflate(R.layout.empty_view, null, false);
-        return view;
+        return getLayoutInflater().inflate(R.layout.empty_view, null, false);
     }
 
     /**

@@ -73,19 +73,16 @@ public class BluetoothTestActivity extends AbstractTestActivity {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 if (myAdapter != null && device.getName() != null) {
                     myAdapter.add(device);
-                }
-                if (myAdapter != null && myAdapter.getCount() > 0) {
-                    mHandler.sendEmptyMessageDelayed(MSG_PASS, mAutoTestDelayTime);
-                } else {
-                    mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
+                    if (myAdapter != null && myAdapter.getCount() > 0) {
+                        mHandler.sendEmptyMessageDelayed(MSG_PASS, mAutoTestDelayTime);
+                    } else {
+                        mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
+                    }
                 }
             }
         }
     };
 
-    /**
-     * 获取附近范围的蓝牙信息
-     */
     private void getBleInfo() {
         BluetoothAdapter blueToothAdapter = BluetoothAdapter.getDefaultAdapter();
         blueToothAdapter.enable();

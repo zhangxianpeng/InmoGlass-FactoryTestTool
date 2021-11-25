@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.inmoglass.factorytools.AbstractTestActivity;
 import com.inmoglass.factorytools.Log;
 import com.inmoglass.factorytools.R;
@@ -21,6 +23,12 @@ import com.inmoglass.factorytools.R;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * 麦克风测试项
+ *
+ * @author Administrator
+ * @date 2021-11-25
+ */
 public class MicroTestActivity extends AbstractTestActivity {
     private static final String TAG = MicroTestActivity.class.getSimpleName();
     private Button startRecordBtn;
@@ -149,7 +157,11 @@ public class MicroTestActivity extends AbstractTestActivity {
                 case TIME_COUNT:
                     int count = (int) msg.obj;
                     Log.d(TAG, "count == " + count);
-                    recordTimeTv.setText(FormatMiss(count));
+                    if (isRecording) {
+                        recordTimeTv.setText("正在录音：" + FormatMiss(count));
+                    } else {
+                        recordTimeTv.setText(FormatMiss(count));
+                    }
                     break;
             }
         }
@@ -237,13 +249,25 @@ public class MicroTestActivity extends AbstractTestActivity {
                 mMediaPlayer.setLooping(false);
                 mMediaPlayer.prepare();
                 mMediaPlayer.start();
-                mHandler.sendEmptyMessageDelayed(MSG_PASS, mAutoTestDelayTime);
+                Integer mediaDuration = (mMediaPlayer.getDuration() / 1000);
+                LogUtils.i(TAG, "time=" + mediaDuration);
+
+                new CountDownTimer(mediaDuration * 1000, 1000) {
+                    @Override
+                    public void onFinish() {
+                        cancel();
+                    }
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        recordTimeTv.setText("正在播放：" + FormatMiss((int) millisUntilFinished / 1000));
+                    }
+                }.start();
+
             } catch (IOException e) {
                 Log.e(TAG, "playRing=>error: ", e);
                 mMediaPlayer = null;
-                mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
             }
         }
-
     }
 }

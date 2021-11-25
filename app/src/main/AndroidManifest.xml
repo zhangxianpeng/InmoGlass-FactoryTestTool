@@ -24,24 +24,23 @@
     <uses-permission android:name="android.permission.MASTER_CLEAR" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
-    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY" />
-    <!-- 蓝牙 -->
+    <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY" /> <!-- 蓝牙 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.DUMP"/>
-    <uses-permission android:name="android.permission.BATTERY_STATS"/>
-    <!--OTG-->
+    <uses-permission android:name="android.permission.DUMP" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" /> <!-- OTG -->
     <uses-feature android:name="android.hardware.usb.host" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -52,20 +51,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:launchMode="singleInstance"-->
-<!--            android:screenOrientation="portrait">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-
+        <activity
+            android:name=".ItemTestActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity2"
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".MainActivity" -->
+        <!-- android:launchMode="singleInstance" -->
+        <!-- android:screenOrientation="portrait"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+
+        <activity
+            android:name=".EntranceActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -94,7 +96,17 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
+        <activity
+            android:name=".batterytest.StandByCurrentTestActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -122,7 +134,18 @@
             </intent-filter>
         </activity>
 
-        <!--USB-->
+        <activity
+            android:name=".cameratest.FlashLightTestActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- USB -->
         <activity
             android:name=".usbtest.USBTestList"
             android:exported="false"
@@ -133,6 +156,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".usbtest.UsbTestActivity"
             android:exported="false"
@@ -143,6 +167,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".usbtest.OtgTestActivity"
             android:exported="false"
@@ -154,7 +179,7 @@
             </intent-filter>
         </activity>
 
-        <!--麦克风-->
+        <!-- 麦克风 -->
         <activity
             android:name=".microtest.MicroTestList"
             android:exported="false"
@@ -165,6 +190,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".microtest.MicroTestActivity"
             android:exported="false"
@@ -186,6 +212,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".annextest.AnnexTestList"
             android:exported="false"
@@ -196,6 +223,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".keytest.KeyTestList"
             android:exported="false"
@@ -203,10 +231,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ringtest.RingTestList"
             android:exported="false"
@@ -214,12 +242,11 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!--触摸板测试-->
+        <!-- 触摸板测试 -->
         <activity
             android:name=".tptest.TpTestList"
             android:exported="false"
@@ -230,6 +257,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".tptest.SingleFingerTouchTestActivity"
             android:configChanges="orientation|screenSize|screenLayout|locale"
@@ -241,6 +269,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".tptest.MultiFingerTouchTestActivity"
             android:configChanges="orientation|screenSize|screenLayout|locale"
@@ -253,7 +282,7 @@
             </intent-filter>
         </activity>
 
-        <!--系统测试-->
+        <!-- 系统测试 -->
         <activity
             android:name=".systemtest.SystemTestList"
             android:exported="false"
@@ -261,10 +290,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".telephonytest.TelephonyTestList"
             android:exported="false"
@@ -272,10 +301,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".wirelesstest.WirelessTestList"
             android:exported="false"
@@ -283,10 +312,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".systemtest.SystemVersionTestActivity"
             android:exported="false"
@@ -294,10 +323,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".annextest.ChargingTestActivity"
             android:exported="false"
@@ -305,10 +334,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".annextest.HeadsetTestActivity"
             android:exported="false"
@@ -316,10 +345,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".annextest.SdcardTestActivity"
             android:exported="false"
@@ -327,10 +356,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".keytest.KeyTestActivity"
             android:exported="false"
@@ -338,10 +367,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ringtest.RingTestActivity"
             android:exported="false"
@@ -349,10 +378,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ringtest.VibrationTestActivity"
             android:exported="false"
@@ -360,12 +389,11 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!--光机显示-->
+        <!-- 光机显示 -->
         <activity
             android:name=".screentest.ScreenTestList"
             android:exported="false"
@@ -376,6 +404,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".screentest.BacklitTestActivity"
             android:exported="false"
@@ -386,6 +415,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".screentest.LcdTestActivity"
             android:exported="false"
@@ -396,7 +426,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!--传感器测试-->
+
+        <!-- 传感器测试 -->
         <activity
             android:name=".sensortest.SensorTestList"
             android:exported="false"
@@ -407,7 +438,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!--指南针测试-->
+
+        <!-- 指南针测试 -->
         <activity
             android:name=".sensortest.MagneticSensorTestActivity"
             android:exported="false"
@@ -415,11 +447,11 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!--重力加速度-->
+
+        <!-- 重力加速度 -->
         <activity
             android:name=".sensortest.GravitySensorTestActivity"
             android:exported="false"
@@ -430,8 +462,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!--GPS-->
-        <!--陀螺仪-->
+
+        <!-- GPS -->
+        <activity
+            android:name=".sensortest.GpsSensorTestActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 陀螺仪 -->
         <activity
             android:name=".sensortest.GyroSensorTestActivity"
             android:exported="false"
@@ -442,8 +486,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!--地磁-->
 
+        <!-- 地磁 -->
         <activity
             android:name=".telephonytest.CallTestActivity"
             android:exported="false"
@@ -451,10 +495,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".telephonytest.EarpieceTestActivity"
             android:exported="false"
@@ -462,10 +506,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".telephonytest.LoopbackTestActivity"
             android:exported="false"
@@ -473,10 +517,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".telephonytest.SimCardTestActivity"
             android:exported="false"
@@ -484,10 +528,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".wirelesstest.BluetoothTestActivity"
             android:exported="false"
@@ -495,10 +539,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".wirelesstest.WifiTestActivity"
             android:exported="false"
@@ -506,17 +550,17 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity> <!-- 息屏Receiver -->
+        </activity>
+
+        <!-- 息屏Receiver -->
         <receiver
             android:name=".receiver.MyAdminReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
                 android:resource="@xml/device_admin" />
-
             <intent-filter>
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>

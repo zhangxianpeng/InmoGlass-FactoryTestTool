@@ -17,10 +17,29 @@
             android:paddingBottom="@dimen/test_result_padding"
             android:text="@string/system_test_device_name"
             android:textColor="@color/white"
-            android:textSize="16pt" />
+            android:textSize="@dimen/system_test_item_title_test_size" />
 
         <TextView
             android:id="@+id/tv_device_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:textColor="@color/color_pass_green"
+            android:textSize="16pt" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/test_item_padding"
+            android:paddingTop="@dimen/test_item_padding"
+            android:paddingRight="@dimen/test_item_padding"
+            android:paddingBottom="@dimen/test_result_padding"
+            android:text="@string/system_test_flash_id"
+            android:textColor="@color/white"
+            android:textSize="@dimen/system_test_item_title_test_size" />
+
+        <TextView
+            android:id="@+id/tv_flash_id_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/test_item_padding"

@@ -1,9 +1,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">测试工具</string>
-
+    <string name="full_test">整机MMI测试</string>
+    <string name="item_test">单板MMI测试</string>
+    <string name="item_test_all_pass">单板MMI测试             All PASS</string>
     <string name="pass">通过</string>
     <string name="fail">失败</string>
+    <string name="retest">重测</string>
 
     <!--系统测试-->
     <string name="system_test">系统测试</string>
@@ -12,35 +15,40 @@
     <string name="system_test_gujian_version">固件版本:</string>
     <string name="system_test_xitong_time">系统时间:</string>
     <string name="system_test_device_name">设备名:</string>
+    <string name="system_test_flash_id">Flash ID:</string>
 
     <!--电池信息测试-->
     <string name="battery_test">电池测试</string>
+    <string name="battery_test_standby_current">待机电流测试</string>
     <string name="battery_test_info">电池信息</string>
     <string name="battery_test_left_battery">剩余电量:</string>
     <string name="battery_test_temperature">电池温度:</string>
     <string name="battery_test_current_dianliu">当前电流:</string>
+    <string name="battery_test_standby_dianliu">待机电流:</string>
     <string name="battery_test_current_dianya">当前电压:</string>
     <string name="battery_test_charging_status">充电状态:</string>
     <string name="battery_test_charging">充电中</string>
     <string name="battery_test_no_charging">未充电</string>
+    <string name="battery_test_standby_current_msg">请在5s内移除USB线，系统将自动执行休眠指令...</string>
 
     <!--传感器测试-->
     <string name="sensor_test">传感器测试</string>
     <string name="sensor_test_acceleration_of_gravity">重力传感器测试</string>
     <string name="sensor_test_compass">磁力传感器测试</string>
     <string name="sensor_test_gyro">陀螺仪测试</string>
+    <string name="sensor_test_gps">GPS测试</string>
+    <string name="sensor_test_gps_title">GPS正在测试中…</string>
+    <string name="sensor_test_weixing_number">卫星数：</string>
 
     <string name="sensor_test_gravity_show_msg">倾斜手机，是否可以看到箭头？</string>
-    <string name="sensor_test_magnetic_title">磁力传感器正在测试中...</string>
+    <string name="sensor_test_magnetic_title">磁力传感器正在测试中…</string>
     <string name="sensor_test_magnetic_info">请晃动手机观察XYZ值的变化！</string>
     <string name="sensor_test_gyro_testing">陀螺仪正在测试中。。。</string>
     <string name="sensor_test_gyro_warn">请以X/Y/Z为轴翻转手机！</string>
 
-    <string name="key_test_start_msg">点击按键开始测试...</string>
-    <string name="usb_test_start_msg">请将设备连接到电脑，查看电脑显示设备是否正常...</string>
+    <string name="key_test_start_msg">点击按键开始测试…</string>
+    <string name="usb_test_start_msg">请将设备连接到电脑，查看电脑显示设备是否正常…</string>
     <string name="otg_test_start_msg">插入OTG设备以开始测试</string>
-
-    <!--指南针-->
 
     <!--无线测试 wifi+蓝牙-->
     <string name="wireless_test">无线连接测试</string>
@@ -63,24 +71,25 @@
     <string name="screen_test">光机显示测试</string>
     <string name="screen_test_lcd">光机显示测试</string>
     <string name="screen_test_lcd_back_light">光机显示背光测试</string>
-
-    <!--摄像头测试-->
+    <string name="screen_test_lcd_test_start">点击屏幕开始测试</string>
+    <string name="screen_test_lcd_test_end">LCD测试完成</string>
 
     <!--麦克测试-->
     <string name="micro_test_item">麦克风录音播放测试</string>
-
     <string name="otg_test">OTG测试</string>
-
+    <string name="test_report">测试报告</string>
+    <string name="camera_test_title">相机测试</string>
+    <string name="flash_test_title">闪光灯测试</string>
+    <string name="flash_test_status">闪光灯状态:</string>
     <string name="auto_test_title">Auto Test</string>
     <string name="ring_test_title">Ring Test</string>
-    <string name="camera_test_title">Camera Test</string>
+
     <string name="key_test_title">Key Test</string>
     <string name="usb_test_title">USB接口测试</string>
     <string name="micro_test_title">麦克风测试</string>
     <string name="test_report_title">Test Report</string>
     <string name="not_found_test">Test items not found</string>
     <string name="not_found_test_index">Test items index not found</string>
-
 
     <string name="single_finger_touch_test_title">Single Finger Touch Test</string>
     <string name="multi_finger_touch_test_title">Multi Finger Touch Test</string>
@@ -101,19 +110,6 @@
     <string name="unknown">Unknown</string>
 
     <string name="disabled_key_tip">Please press "pass" or "fail" to exit test</string>
-
-    <string name="lcd_test_view_start_tip">Touch Continue</string>
-    <string name="lcd_test_view_end_tip">LCD test is complete</string>
-
     <string name="ring_tip_title">"Now Playing: \n"<xliff:g id="file_path">%s</xliff:g></string>
     <string name="vibration_test_tip">Touch screen vibration</string>
-
-    <!--电池测试-->
-
-    <!-- GPS test -->
-
-    <!--陀螺仪测试-->
-
-
-    <!--地磁测试-->
 </resources>

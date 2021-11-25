@@ -1,13 +1,9 @@
 package com.inmoglass.factorytools;
 
-import static com.inmoglass.factorytools.TestItem.State.UNKNOWN;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
@@ -19,17 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 以列表的形式展示所有需要测试的项目
- *
- * @author Administrator
- * @date 2021-11-23
+ * 单板测试列表
  */
-public class MainActivity2 extends Activity {
-
-    private static final String TAG = MainActivity2.class.getSimpleName();
+public class ItemTestActivity extends Activity {
+    private static final String TAG = ItemTestActivity.class.getSimpleName();
     private Resources mResources;
     private FactoryToolsApplication mApplication;
-
     private ListView testListView;
     private List<TestItem> resultList;
     private TestItemAdapter adapter;
@@ -38,8 +29,8 @@ public class MainActivity2 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setTitle(R.string.full_test);
-        setContentView(R.layout.factory_test2);
+        setTitle(R.string.item_test);
+        setContentView(R.layout.activity_item_test);
         testListView = findViewById(R.id.lv_test);
         initAdapter();
         initValues();
@@ -52,23 +43,17 @@ public class MainActivity2 extends Activity {
         adapter.setOnItemClickListener(new TestItemAdapter.OnItemClickListener() {
             @Override
             public void onClick(View view, int position) {
-                if (position == 0) { // 整机
-                    mApplication.resetAutoTest();
-                    mApplication.clearAllData();
-                    mApplication.startAutoTest();
-                } else {  // 单板
-                    TestItem info = resultList.get(position);
-                    Log.d(MainActivity2.this, "onClick(test)=>class: " + info.getClassName());
-                    Intent intent = info.getIntent();
-                    intent.putExtra(Utils.EXTRA_AUTO_TEST, false);
-                    intent.putExtra(Utils.EXTRA_PARENT, MainActivity2.this.getClass().getSimpleName());
-                    if (intent != null) {
-                        try {
-                            startActivity(intent);
-                        } catch (Exception e) {
-                            Log.e(this, "(mTestClickListener)onClick=>start activity fail. intent: " + intent + " error: ", e);
-                            Toast.makeText(MainActivity2.this, R.string.not_found_test, Toast.LENGTH_SHORT).show();
-                        }
+                TestItem info = resultList.get(position);
+                Log.d(ItemTestActivity.this, "onClick(test)=>class: " + info.getClassName());
+                Intent intent = info.getIntent();
+                intent.putExtra(Utils.EXTRA_AUTO_TEST, false);
+                intent.putExtra(Utils.EXTRA_PARENT, ItemTestActivity.this.getClass().getSimpleName());
+                if (intent != null) {
+                    try {
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        Log.e(this, "(mTestClickListener)onClick=>start activity fail. intent: " + intent + " error: ", e);
+                        Toast.makeText(ItemTestActivity.this, R.string.not_found_test, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -83,88 +68,26 @@ public class MainActivity2 extends Activity {
         updateItemContainer();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //getMenuInflater().inflate(R.menu.factory_testing_tool, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        /*
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        */
-        return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * 测试组按钮点击监听器
-     */
-    public View.OnClickListener mTestClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (v.getTag() instanceof TestItem) {
-                TestItem info = (TestItem) v.getTag();
-                Log.d(MainActivity2.this, "onClick(test)=>class: " + info.getClassName());
-                Intent intent = info.getIntent();
-                intent.putExtra(Utils.EXTRA_AUTO_TEST, false);
-                intent.putExtra(Utils.EXTRA_PARENT, MainActivity2.this.getClass().getSimpleName());
-                if (intent != null) {
-                    try {
-                        startActivity(intent);
-                    } catch (Exception e) {
-                        Log.e(this, "(mTestClickListener)onClick=>start activity fail. intent: " + intent + " error: ", e);
-                        Toast.makeText(MainActivity2.this, R.string.not_found_test, Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        }
-    };
-
-    /**
-     * 自动测试按钮点击监听器
-     */
-    public View.OnClickListener mAutoTestClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            mApplication.resetAutoTest();
-            mApplication.clearAllData();
-            mApplication.startAutoTest();
-        }
-    };
-
     private void initValues() {
         mResources = getResources();
         mApplication = (FactoryToolsApplication) getApplication();
     }
 
-    private TestItem.State getTestState(String test) {
-        return UNKNOWN;
-    }
+    private boolean allPass = false;
 
-    /**
-     * 更新GridLayout视图
-     */
     private void updateItemContainer() {
         // 首先清除GirdLayout中的View，防止重复添加测试组View
         resultList.clear();
         // 获取测试列表信息
         ArrayList<TestItem> testList = mApplication.getTestList();
-        TestItem auto = new TestItem("整机自动测试", "", "", UNKNOWN);
-        resultList.add(auto);
+        for (TestItem item : testList) {
+            if (item.getState() != TestItem.State.PASS) {
+                setTitle(R.string.item_test);
+                break;
+            } else {
+                setTitle(R.string.item_test_all_pass);
+            }
+        }
         resultList.addAll(testList);
         if (adapter != null) {
             adapter.notifyDataSetChanged();

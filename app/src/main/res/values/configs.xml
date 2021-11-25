@@ -54,11 +54,13 @@
     <!-- 电池测试 = 电压 + 待机电流 + 充电状态-->
     <string-array name="battery_test_title">
         <item>@string/battery_test</item>
+        <item>@string/battery_test_standby_current</item>
     </string-array>
 
     <!-- 电池测试类名 -->
     <string-array name="battery_test_class">
         <item>com.inmoglass.factorytools.batterytest.VoltageActivity</item>
+        <item>com.inmoglass.factorytools.batterytest.StandByCurrentTestActivity</item>
     </string-array>
 
     <!--传感器测试列表标题-->
@@ -66,6 +68,7 @@
         <item>@string/sensor_test_acceleration_of_gravity</item>
         <item>@string/sensor_test_compass</item>
         <item>@string/sensor_test_gyro</item>
+        <item>@string/sensor_test_gps</item>
     </string-array>
 
     <!--传感器测试列表类名-->
@@ -73,6 +76,7 @@
         <item>com.inmoglass.factorytools.sensortest.GravitySensorTestActivity</item>
         <item>com.inmoglass.factorytools.sensortest.MagneticSensorTestActivity</item>
         <item>com.inmoglass.factorytools.sensortest.GyroSensorTestActivity</item>
+        <item>com.inmoglass.factorytools.sensortest.GpsSensorTestActivity</item>
     </string-array>
 
     <!--无线测试列表标题-->
@@ -156,11 +160,13 @@
     <!--相机测试列表标题-->
     <string-array name="camera_test_title">
         <item>@string/camera_test_title</item>
+        <item>@string/flash_test_title</item>
     </string-array>
 
     <!--相机测试列表类名-->
     <string-array name="camera_test_class">
         <item>com.inmoglass.factorytools.cameratest.CameraTestActivity</item>
+        <item>com.inmoglass.factorytools.cameratest.FlashLightTestActivity</item>
     </string-array>
 
     <!--按键测试列表标题-->
@@ -175,13 +181,11 @@
 
     <!--USB测试列表标题-->
     <string-array name="usb_test_title">
-        <item>@string/usb_test_title</item>
         <item>@string/otg_test</item>
     </string-array>
 
     <!--USB测试列表类名-->
     <string-array name="usb_test_class">
-        <item>com.inmoglass.factorytools.usbtest.UsbTestActivity</item>
         <item>com.inmoglass.factorytools.usbtest.OtgTestActivity</item>
     </string-array>
 
@@ -214,11 +218,11 @@
 
     <!--屏幕测试时，使用的颜色数组-->
     <integer-array name="lcd_test_colors">
+        <item>0xff000000</item>
         <item>0xffffffff</item>
-        <item>0xffff0000</item>
         <item>0xff00ff00</item>
         <item>0xff0000ff</item>
-        <item>0xffffff00</item>
+        <item>0xffff0000</item>
     </integer-array>
 
     <!--LCD　测试时切换屏幕颜色的延迟时间，单位：毫秒-->
@@ -226,7 +230,7 @@
     <!--LCD 测试时隐藏操作提示信息的延迟时间，　单位：毫秒-->
     <integer name="lcd_test_hide_start_tip_delayed">3000</integer>
     <!--LCD 测试时显示结束测试提示信息的延迟时间，单位：毫秒-->
-    <integer name="lcd_test_show_end_tip_delayed">5000</integer>
+    <integer name="lcd_test_show_end_tip_delayed">3000</integer>
 
     <!--背光测试颜色数组-->
     <integer-array name="backlit_test_colors">
